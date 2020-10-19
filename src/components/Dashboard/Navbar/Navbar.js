@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <header className="toolbar">
             <nav className="toolbar_navigation">
-                <div className="toolbar_logo"><img style={{ marginLeft: "10px" }} height="50px" width="180px" src={Logo} alt="Schole Logo" /></div>
+                <div className="toolbar_logo"><img style={{ marginLeft: "10px" }} height="20%" width="20%" src={Logo} alt="Schole Logo" /></div>
                 <div className="spacer" />
                 <div className="toolbar_navigation_items">
                     <div className="row" style={{ marginTop: "10px" }}>

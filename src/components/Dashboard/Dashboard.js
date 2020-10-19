@@ -7,6 +7,11 @@ import Games from "./Games/Games";
 
 import Error404 from "../Errors/404Error";
 
+import Authenticator from "../Authenticator/Authenticator";
+
+const AuthenticatedHomepage = Authenticator(Homepage);
+const AuthenticatedGames = Authenticator(Games);
+
 const Dashboard = () => {
     return (
         <Router>
