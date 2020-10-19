@@ -1,0 +1,4 @@
+@font-face{
+    font-family: 'now';
+    src: local('now'),url(./fonts/NowAlt-Medium.otf) format('truetype');
+}
