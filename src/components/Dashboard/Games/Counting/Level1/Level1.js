@@ -4,7 +4,7 @@ import CountingLevel1 from "../../../../../assets/bgs/countingBg.png";
 const Level1 = (props) => {
     return (
         <div>
-            <Navbar />
+            <Navbar seriesNumber={"1"} seriesLevel={"1"} seriesName={"Counting"} />
             <div style={mainDivHomepage}>
                 <h1>Counting Level 1</h1>
             </div>

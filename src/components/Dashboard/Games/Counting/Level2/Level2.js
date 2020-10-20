@@ -4,7 +4,7 @@ import Navbar from "../../Navbar/Navbar";
 const Level2 = (props) => {
     return (
         <div>
-            <Navbar />
+            <Navbar seriesNumber={"1"} seriesLevel={"2"} seriesName={"Counting"} />
             <div style={{ marginTop: "64px" }}>
                 <h1>Counting Level 2</h1>
             </div>

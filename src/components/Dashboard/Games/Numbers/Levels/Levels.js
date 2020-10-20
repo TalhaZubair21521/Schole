@@ -18,12 +18,6 @@ const Levels = () => {
                     <div className="row" style={RowAlignment}>
                         <div className="col-3"><button style={ButtonStyling}>Level 4</button></div>
                         <div className="col-3"><button style={ButtonStyling}>Level 5</button></div>
-                        <div className="col-3"><button style={ButtonStyling}>Level 6</button></div>
-                    </div>
-                    <div className="row" style={RowAlignment}>
-                        <div className="col-3"><button style={ButtonStyling}>Level 7</button></div>
-                        <div className="col-3"><button style={ButtonStyling}>Level 8</button></div>
-                        <div className="col-3"><button style={ButtonStyling}>Level 9</button></div>
                     </div>
                 </div>
             </main>

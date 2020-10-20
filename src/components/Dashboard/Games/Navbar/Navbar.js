@@ -1,18 +1,20 @@
 import React from "react";
 import Logo from "../../../../assets/logo2.png";
 import Timer from "../../../../assets/timer.png";
-
-const Navbar = () => {
+import { Link } from "react-router-dom";
+const Navbar = (props) => {
     return (
         <div class="navbar row" style={item}>
             <div className="col-2"><img style={{ marginLeft: "1px", marginTop: "1px" }} height="70%" width="70%" src={Logo} alt="Schole Logo" /></div>
-            <div className="col-2 text-center" style={Test}>Test #1</div>
-            <div className="col-2 text-center" style={Counting}>Counting</div>
-            <div className="col-2 text-center" style={Level}>Level 1</div>
+            <div className="col-2 text-center" style={Test}>Test # {props.seriesNumber}</div>
+            <div className="col-2 text-center" style={Counting}>{props.seriesName}</div>
+            <div className="col-2 text-center" style={Level}>{"Level " + props.seriesLevel}</div>
             <div className="col-2 text-center" style={{ fontSize: "1.2rem" }}>
-                <img style={{ marginLeft: "10px", padding: "0px 5px" }} height="20%" width="20%" src={Timer} alt="Schole Logo" />Timer
+                <img style={{ marginLeft: "0px", padding: "0px 5px" }} height="20%" width="20%" src={Timer} alt="Schole Logo" />Timer
             </div>
-            <div ><button style={{ color: "white", backgroundColor: "#C84747", textDecoration: "none", border: "none", borderRadius: "5px", padding: "7px 30px", marginRight: "50px" }}>Leave</button></div>
+            <Link to="/dashboard/games">
+                <div><button style={{ color: "white", backgroundColor: "#C84747", textDecoration: "none", border: "none", borderRadius: "5px", padding: "7px 30px", marginRight: "50px" }}>Leave</button></div>
+            </Link>
         </div>
     );
 }
