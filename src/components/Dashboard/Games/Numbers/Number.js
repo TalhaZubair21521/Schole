@@ -5,10 +5,10 @@ import Levels from "./Levels/Levels";
 import Authenticator from "../../../Authenticator/Authenticator";
 const AuthenticatedLevels = Authenticator(Levels);
 
-const Counting = () => {
+const Numbers = () => {
     return (
         <AuthenticatedLevels />
     );
 }
 
-export default Counting;
+export default Numbers;

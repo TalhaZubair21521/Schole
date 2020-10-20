@@ -9,11 +9,11 @@ const Levels = () => {
             <Navbar />
             <main style={{ marginTop: "100px" }}>
                 <div className="container" style={ContentAlignment}>
-                    <div style={{ textAlign: "center" }}><p style={{ fontSize: "3rem", fontWeight: "bold", color: "#DF615C" }}>Counting</p></div>
+                    <div style={{ textAlign: "center" }}><p style={{ fontSize: "3rem", fontWeight: "bold", color: "#DF615C" }}>Numbers</p></div>
                     <div className="row" style={RowAlignment}>
-                        <div className="col-3"><Link to="/dashboard/games/counting/level1"><button style={ButtonStyling}>Level 1</button></Link></div>
-                        <div className="col-3"> <Link to="/dashboard/games/counting/level2"><button style={ButtonStyling}>Level 2</button></Link></div>
-                        <div className="col-3"><Link to="/dashboard/games/counting/level3"><button style={ButtonStyling}>Level 3</button></Link></div>
+                        <div className="col-3"><Link to="/dashboard/games/numbers/level1"><button style={ButtonStyling}>Level 1</button></Link></div>
+                        <div className="col-3"> <Link to="/dashboard/games/numbers/level2"><button style={ButtonStyling}>Level 2</button></Link></div>
+                        <div className="col-3"><Link to="/dashboard/games/numbers/level3"><button style={ButtonStyling}>Level 3</button></Link></div>
                     </div>
                     <div className="row" style={RowAlignment}>
                         <div className="col-3"><button style={ButtonStyling}>Level 4</button></div>

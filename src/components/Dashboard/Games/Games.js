@@ -11,7 +11,7 @@ const Games = () => {
                 <div className="container" style={ContentAlignment}>
                     <div style={{ textAlign: "center" }}><p style={{ fontSize: "3rem", fontWeight: "bold", color: "#DF615C" }}>Test Games</p></div>
                     <div className="row" style={RowAlignment}>
-                        <div className="col" style={{}}><Link to="/dashboard/games/numbers/"><button style={ButtonStyling}>Numbers</button></Link></div>
+                        <div className="col"><Link to="/dashboard/games/numbers/"><button style={ButtonStyling}>Numbers</button></Link></div>
                         <div className="col"> <Link to="/dashboard/games/counting/"><button style={ButtonStyling}>Counting</button></Link></div>
                         <div className="col"><Link to="/dashboard/games/shapes/"><button style={ButtonStyling}>Shapes</button></Link></div>
                     </div>

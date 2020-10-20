@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../../Navbar/Navbar";
+// import Navbar from "../../Navbar/Navbar";
 
 const Level3 = (props) => {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <div style={{ marginTop: "64px" }}>
-                <h1>Counting Level 3</h1>
+                <h1>Numbers Level 3</h1>
             </div>
         </div>
     );

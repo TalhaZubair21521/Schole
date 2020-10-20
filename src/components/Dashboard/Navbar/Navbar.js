@@ -9,7 +9,9 @@ const Navbar = () => {
         <header className="toolbar">
             <nav className="toolbar_navigation">
                 <div className="toolbar_logo">
-                    <img style={{ marginLeft: "10px" }} height="20%" width="20%" src={Logo} alt="Schole Logo" />
+                    <Link to="/dashboard">
+                        <img style={{ marginLeft: "10px" }} height="20%" width="20%" src={Logo} alt="Schole Logo" />
+                    </Link>
                 </div>
                 <div className="spacer" />
                 <div className="toolbar_navigation_items">
@@ -19,7 +21,9 @@ const Navbar = () => {
                         </div>
                         <div className="col-6" style={{ alignItems: "center", justifyContent: "center" }}>
                             <p style={{ color: "black", fontSize: "1.5rem", marginTop: "10px", marginBottom: "-1px" }}>Micheal</p>
-                            <button style={{ color: "white", backgroundColor: "#C84747", textDecoration: "none", border: "none", padding: "4% 20%", borderRadius: "5px" }}>Logout</button>
+                            <Link to="/">
+                                <button style={{ color: "white", backgroundColor: "#C84747", textDecoration: "none", border: "none", padding: "4% 20%", borderRadius: "5px" }}>Logout</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -27,4 +31,5 @@ const Navbar = () => {
         </header>
     );
 }
+
 export default Navbar;
