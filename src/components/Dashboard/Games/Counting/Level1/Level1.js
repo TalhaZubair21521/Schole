@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "../../Navbar/Navbar";
+// import Navbar from "../../Navbar/Navbar";
+
 const Level1 = (props) => {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <div style={{ marginTop: "64px" }}>
-
+                <h1>Level 1</h1>
             </div>
-            <h1>Level 1</h1>
         </div>
     );
 }

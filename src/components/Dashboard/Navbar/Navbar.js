@@ -2,12 +2,15 @@ import React from "react";
 import "./Navbar.css";
 import Logo from "../../../assets/logo2.png";
 import Profile from "../../../assets/profile.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
         <header className="toolbar">
             <nav className="toolbar_navigation">
-                <div className="toolbar_logo"><img style={{ marginLeft: "10px" }} height="20%" width="20%" src={Logo} alt="Schole Logo" /></div>
+                <div className="toolbar_logo">
+                    <img style={{ marginLeft: "10px" }} height="20%" width="20%" src={Logo} alt="Schole Logo" />
+                </div>
                 <div className="spacer" />
                 <div className="toolbar_navigation_items">
                     <div className="row" style={{ marginTop: "10px" }}>

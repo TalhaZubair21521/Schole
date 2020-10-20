@@ -8,24 +8,22 @@ const Games = () => {
         <div className="mainDivGames">
             <Navbar />
             <main style={{ marginTop: "100px" }}>
-                <div class="container" style={ContentAlignment}>
+                <div className="container" style={ContentAlignment}>
                     <div style={{ textAlign: "center" }}><p style={{ fontSize: "3rem", fontWeight: "bold", color: "#DF615C" }}>Test Games</p></div>
-                    <div class="row" style={RowAlignment}>
-                        <div class="col-3"><button style={ButtonStyling}>Numbers</button></div>
-                        <Link to="/dashboard/games/counting/level1">
-                            <div class="col-3"><button style={ButtonStyling}>Counting</button></div>
-                        </Link>
-                        <div class="col-3"><button style={ButtonStyling}>Shapes</button></div>
+                    <div className="row" style={RowAlignment}>
+                        <div className="col" style={{}}><Link to="/dashboard/games/numbers/"><button style={ButtonStyling}>Numbers</button></Link></div>
+                        <div className="col"> <Link to="/dashboard/games/counting/"><button style={ButtonStyling}>Counting</button></Link></div>
+                        <div className="col"><Link to="/dashboard/games/shapes/"><button style={ButtonStyling}>Shapes</button></Link></div>
                     </div>
-                    <div class="row" style={RowAlignment}>
-                        <div class="col-3"><button style={ButtonStyling}>Ordering</button></div>
-                        <div class="col-3"><button style={ButtonStyling}>Addition</button></div>
-                        <div class="col-3"><button style={ButtonStyling}>Subtraction</button></div>
+                    <div className="row" style={RowAlignment}>
+                        <div className="col"><Link to="/dashboard/games/ordering/"><button style={ButtonStyling}>Ordering</button></Link></div>
+                        <div className="col"><Link to="/dashboard/games/addition/"><button style={ButtonStyling}>Addition</button></Link></div>
+                        <div className="col"><Link to="/dashboard/games/subtraction/"><button style={ButtonStyling}>Subtraction</button></Link></div>
                     </div>
-                    <div class="row" style={RowAlignment}>
-                        <div class="col-3"><button style={ButtonStyling}>Time</button></div>
-                        <div class="col-3"><button style={ButtonStyling}>Patterning</button></div>
-                        <div class="col-3"><button style={ButtonStyling}>Original Numbers</button>    </div>
+                    <div className="row" style={RowAlignment}>
+                        <div className="col"><Link to="/dashboard/games/time/"><button style={ButtonStyling}>Time</button></Link></div>
+                        <div className="col"><Link to="/dashboard/games/patterning/"><button style={ButtonStyling}>Patterning</button></Link></div>
+                        <div className="col"><Link to="/dashboard/games/original_numbers/"><button style={ButtonStyling}>Original Numbers</button>  </Link>  </div>
                     </div>
                 </div>
             </main>
@@ -34,12 +32,11 @@ const Games = () => {
 }
 
 const ContentAlignment = {
-    marginLeft: "50px"
+    marginLeft: "100px"
 }
 
 const RowAlignment = {
-    padding: "2%",
-    margin: "1%",
+    margin: "5% 0%"
 }
 
 const ButtonStyling = {
@@ -47,12 +44,11 @@ const ButtonStyling = {
     fontSize: "1rem",
     border: "orange solid",
     borderRadius: "5px",
-    padding: "4% 10%",
-    margin: "0% 50%",
     width: "100%",
     color: "orange",
     backgroundColor: "white",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    padding: "3% 2%"
 }
 
 export default Games;
