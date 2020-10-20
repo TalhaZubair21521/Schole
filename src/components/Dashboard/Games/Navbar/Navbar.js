@@ -13,7 +13,7 @@ const Navbar = (props) => {
             <div className="col-2 text-center" style={Counting}>{props.seriesName}</div>
             <div className="col-2 text-center" style={Level}>{"Level " + props.seriesLevel}</div>
             <div className="col-2 text-center" style={{ fontSize: "1.2rem" }}>
-                <img style={{ marginLeft: "0px", padding: "0px 5px" }} height="20%" width="20%" src={Timer} alt="Schole Logo" />Timer
+                <img style={{ marginLeft: "0px", padding: "0px 5px" }} height="20%" width="20%" src={Timer} alt="Schole Logo" /> {" 03:00"}
             </div>
             <Link to="/dashboard">
                 <div><button style={{ color: "white", backgroundColor: "#C84747", textDecoration: "none", border: "none", borderRadius: "5px", padding: "7px 30px", marginRight: "50px" }}>Leave</button></div>
