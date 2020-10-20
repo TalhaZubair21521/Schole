@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" ><Homepage /></Route>
           <Route path="/dashboard" ><Dashboard /></Route>
-          <Route exact path="/Not-Authorized" ><Error401 /></Route>
+          <Route path="/Not-Authorized" ><Error401 /></Route>
           <Route exact path="/Server-Not-Responding" ><Error500 /></Route>
           <Route><Error404 /></Route>
         </Switch>

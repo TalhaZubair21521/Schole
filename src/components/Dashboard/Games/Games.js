@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-
+import { Link } from "react-router-dom";
 import "./Games.css";
 
 const Games = () => {
@@ -12,7 +12,9 @@ const Games = () => {
                     <div style={{ textAlign: "center" }}><p style={{ fontSize: "3rem", fontWeight: "bold", color: "#DF615C" }}>Test Games</p></div>
                     <div class="row" style={RowAlignment}>
                         <div class="col-3"><button style={ButtonStyling}>Numbers</button></div>
-                        <div class="col-3"><button style={ButtonStyling}>Counting</button></div>
+                        <Link to="/dashboard/games/counting/level1">
+                            <div class="col-3"><button style={ButtonStyling}>Counting</button></div>
+                        </Link>
                         <div class="col-3"><button style={ButtonStyling}>Shapes</button></div>
                     </div>
                     <div class="row" style={RowAlignment}>
