@@ -5,8 +5,9 @@ import Circle from "../../../../../assets/shapesLevelsImages/circle.png"
 import Closet from "../../../../../assets/shapesLevelsImages/closet.png"
 import Frame from "../../../../../assets/shapesLevelsImages/frame.png"
 import Triangle from "../../../../../assets/shapesLevelsImages/triangle.png"
-import Squar from "../../../../../assets/shapesLevelsImages/square.png"
+import Square from "../../../../../assets/shapesLevelsImages/square.png"
 import Rectangle from "../../../../../assets/shapesLevelsImages/rectangle.png"
+import Arrow from "../../../../../assets/shapesLevelsImages/arrow.png"
 
 const Level1 = (props) => {
     return (
@@ -30,6 +31,13 @@ const Level1 = (props) => {
                                         <p>I have two long sides and two short sides.What am I?</p>
                                     </div>
                                 </div>
+                                <div className="row" style={{ marginTop: "-10px", color: "#C84747", textAlign: "center", fontSize: "0.5rem" }}>
+                                    <div className="col-2"></div>
+                                    <div className="col-8">
+                                        <img width="50%" height="60%" src={Arrow} alt="box" />
+                                        <p>DRAG THE ARROW AND CLICK ON RECTANGLE</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -41,7 +49,7 @@ const Level1 = (props) => {
                                         <img src={Triangle} alt="box" />
                                     </div>
                                     <div className="col-6">
-                                        <img src={Squar} alt="box" />
+                                        <img src={Square} alt="box" />
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "35%", marginLeft: "10%" }}>
@@ -52,6 +60,7 @@ const Level1 = (props) => {
                                         <img src={Circle} alt="box" />
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
