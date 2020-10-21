@@ -4,9 +4,9 @@ import Navbar from "../../Navbar/Navbar";
 const Level3 = (props) => {
     return (
         <div>
-            <Navbar seriesNumber={"6"} seriesLevel={"3"} seriesName={"Subtraction"} />
+            <Navbar seriesNumber={"8"} seriesLevel={"3"} seriesName={"Patterning"} />
             <div style={{ marginTop: "64px" }}>
-                <h1>Subtraction Level 3</h1>
+                <h1>Patterning Level 3</h1>
             </div>
         </div>
     );

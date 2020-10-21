@@ -29,6 +29,18 @@ import SubtractionLevel1 from "./Games/Subtraction/Level1/Level1";
 import SubtractionLevel2 from "./Games/Subtraction/Level2/Level2";
 import SubtractionLevel3 from "./Games/Subtraction/Level3/Level3";
 
+import TimeLevel1 from "./Games/Time/Level1/Level1";
+import TimeLevel2 from "./Games/Time/Level2/Level2";
+import TimeLevel3 from "./Games/Time/Level3/Level3";
+
+import PatterningLevel1 from "./Games/Patterning/Level1/Level1";
+import PatterningLevel2 from "./Games/Patterning/Level2/Level2";
+import PatterningLevel3 from "./Games/Patterning/Level3/Level3";
+
+import OrdinalNumberLevel1 from "./Games/OrdinalNumber/Level1/Level1";
+import OrdinalNumberLevel2 from "./Games/OrdinalNumber/Level2/Level2";
+import OrdinalNumberLevel3 from "./Games/OrdinalNumber/Level3/Level3";
+
 import Error404 from "../Errors/404Error";
 import Error401 from "../Errors/401Error";
 
@@ -60,6 +72,18 @@ const AuthenticatedSubtractionLevel1 = Authenticator(SubtractionLevel1);
 const AuthenticatedSubtractionLevel2 = Authenticator(SubtractionLevel2);
 const AuthenticatedSubtractionLevel3 = Authenticator(SubtractionLevel3);
 
+const AuthenticatedTimeLevel1 = Authenticator(TimeLevel1);
+const AuthenticatedTimeLevel2 = Authenticator(TimeLevel2);
+const AuthenticatedTimeLevel3 = Authenticator(TimeLevel3);
+
+const AuthenticatedPatterningLevel1 = Authenticator(PatterningLevel1);
+const AuthenticatedPatterningLevel2 = Authenticator(PatterningLevel2);
+const AuthenticatedPatterningLevel3 = Authenticator(PatterningLevel3);
+
+const AuthenticatedOrdinalNumberLevel1 = Authenticator(OrdinalNumberLevel1);
+const AuthenticatedOrdinalNumberLevel2 = Authenticator(OrdinalNumberLevel2);
+const AuthenticatedOrdinalNumberLevel3 = Authenticator(OrdinalNumberLevel3);
+
 const Dashboard = () => {
     return (
         <Switch>
@@ -88,6 +112,18 @@ const Dashboard = () => {
             <Route exact path="/dashboard/games/subtraction/level1" ><AuthenticatedSubtractionLevel1 /></Route>
             <Route exact path="/dashboard/games/subtraction/level2" ><AuthenticatedSubtractionLevel2 /></Route>
             <Route exact path="/dashboard/games/subtraction/level3" ><AuthenticatedSubtractionLevel3 /></Route>
+
+            <Route exact path="/dashboard/games/time/level1" ><AuthenticatedTimeLevel1 /></Route>
+            <Route exact path="/dashboard/games/time/level2" ><AuthenticatedTimeLevel2 /></Route>
+            <Route exact path="/dashboard/games/time/level3" ><AuthenticatedTimeLevel3 /></Route>
+
+            <Route exact path="/dashboard/games/patterning/level1" ><AuthenticatedPatterningLevel1 /></Route>
+            <Route exact path="/dashboard/games/patterning/level2" ><AuthenticatedPatterningLevel2 /></Route>
+            <Route exact path="/dashboard/games/patterning/level3" ><AuthenticatedPatterningLevel3 /></Route>
+
+            <Route exact path="/dashboard/games/ordinalnumber/level1" ><AuthenticatedOrdinalNumberLevel1 /></Route>
+            <Route exact path="/dashboard/games/ordinalnumber/level2" ><AuthenticatedOrdinalNumberLevel2 /></Route>
+            <Route exact path="/dashboard/games/ordinalnumber/level3" ><AuthenticatedOrdinalNumberLevel3 /></Route>
 
             <Route exact path="/Not-Authorized" ><Error401 /></Route>
             <Route><Error404 /></Route>
