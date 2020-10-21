@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
     return (
-        <div class="navbar row" style={item}>
+        <div className="navbar row" style={item}>
             <div className="col-2">
                 <Link to="/dashboard"><img style={{ marginLeft: "1px", marginTop: "1px" }} height="70%" width="70%" src={Logo} alt="Schole Logo" /></Link>
             </div>
