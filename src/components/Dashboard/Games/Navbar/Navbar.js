@@ -7,7 +7,7 @@ const Navbar = (props) => {
     return (
         <div class="navbar row" style={item}>
             <div className="col-2">
-                <Link to="/dashboard/"><img style={{ marginLeft: "1px", marginTop: "1px" }} height="70%" width="70%" src={Logo} alt="Schole Logo" /></Link>
+                <Link to="/dashboard"><img style={{ marginLeft: "1px", marginTop: "1px" }} height="70%" width="70%" src={Logo} alt="Schole Logo" /></Link>
             </div>
             <div className="col-2 text-center" style={Test}>Test # {props.seriesNumber}</div>
             <div className="col-2 text-center" style={Counting}>{props.seriesName}</div>
