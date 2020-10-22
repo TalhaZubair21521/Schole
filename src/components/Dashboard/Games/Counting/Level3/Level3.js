@@ -8,18 +8,17 @@ const Level3 = (props) => {
         <div>
             <Navbar seriesNumber={"1"} seriesLevel={"2"} seriesName={"Counting"} />
             <div style={mainDivHomepage}>
-                    <div style={CenterContent}>
-                        <div style={BackgroundImageSetter}>
-                                <div className="row" style={{marginTop:"10%"}}>
-                                    <div className="col-2"></div>
-                                    <div className="col-10">
-                                    <h2>Arrange The Lollipop In Order</h2>
-                                    </div>
-                                </div>
-                        </div>                     
+                <div style={CenterContent}>
+                    <div style={BackgroundImageSetter}>
+                        <div className="row" style={{ marginTop: "10%" }}>
+                            <div className="col-2"></div>
+                            <div className="col-10">
+                                <h2 style={{ color: "#C84747" }}>Arrange The Lollipop In Order</h2>
+                            </div>
+                        </div>
                     </div>
+                </div>
             </div>
-
         </div>
     );
 }
@@ -41,10 +40,10 @@ const CenterContent = {
     marginTop: "-30px"
 }
 const BackgroundImageSetter = {
-    marginBottom: "8%",
+    marginBottom: "2%",
     backgroundImage: `url(${Card})`,
-    height: "80%",
-    width: "75%",
+    height: "95%",
+    width: "80%",
     backgroundPosition: "center",
     backgroundRepeat: "no-repear",
     backgroundSize: "100% 100%",
