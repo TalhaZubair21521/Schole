@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+// import useSound from 'use-sound';
+
+// import Test from "../../../../../assets/sound/test.mp3"
 
 import Navbar from "../../Navbar/Navbar";
 import CountingLevel1 from "../../../../../assets/bgs/shapesBg.png";
@@ -17,6 +20,9 @@ const Level1 = (props) => {
     const shapes = [{ id:"0",name:"Triangle", text: "I have three sides and are sharp.What am I?" }, { id:"1",name:"Square", text: "I have four sides and are equal.What am I?" }, { id:"2",name:"Rectangle", text: "I have two long sides and two short sides.What am I?" }, { id:"3",name:"Circle", text: "I have no sides, same from everywhere.What am I?" }]
     const [shapesList] = useState(shapes);
     const [count, setCount] = useState(0);
+
+    // const [play] = useSound(Test,{ volume: 0.25 });
+
     const shapesHandle = (event) => {
     
         if(shapesList[count].id === event.target.id ){
@@ -89,6 +95,11 @@ const Level1 = (props) => {
                             </div>
                         </div>
                     </div>
+                    <div style={block}>
+                                    <button type="button" style={{...btn,color:'orange',borderColor:"orange"}} onClick={()=>history.push('/dashboard/games/shapes/level2')}>Cancel</button><br/>
+                                    <button type="button" style={{...btn,color:'red',borderColor:"red"}} onClick={()=>window.location.reload(false)}>Clear</button><br/>
+                                    <button type="button" style={{...btn,color:'green',borderColor:"green"}} onClick={()=>alert('Complete the game first')}>Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,6 +138,25 @@ const CenterContent = {
     alignItems: "center",
     justifyContent: "center",
     marginTop: "-30px"
+}
+
+const btn = {
+    border: "2px solid",
+    backgroundColor: "#f7f0ee",
+    padding: "7% 7%",
+    width:"200%",
+    fontSize: "1.3rem",
+    marginTop:"2%"
+}
+
+
+
+const block = {
+position: "absolute",
+top: "0px",
+left: "0px",
+marginLeft:"3%",
+marginTop:"1%"
 }
 
 export default Level1;
