@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import Background from "../../../../assets/bg3.png";
+import { Pie } from "react-chartjs-2";
 const Statistics = (props) => {
 
     const [overall] = useState({ label: "Overall Progress", color: "linear-gradient(#136A8A,#267871)", percentage: "70%" })
@@ -11,6 +12,13 @@ const Statistics = (props) => {
         { label: "Visualization", color: "linear-gradient(#16A085,#F4D03F)", percentage: "80%" },
         { label: "Exploration", color: "linear-gradient(#FF512F,#F09819)", percentage: "60%" }
     ]);
+    const [graphData] = useState({
+        labels: ['Logic', 'Mathematics', 'Sequencing', 'Visualization', 'Exploration'],
+        datasets: [{
+            data: [70, 50, 60, 80, 60],
+            backgroundColor: ['red', 'blue', 'green', 'orange', 'purple']
+        }]
+    })
 
     return (
         <div style={mainDivHomepage}>
@@ -69,8 +77,14 @@ const Statistics = (props) => {
                         })}
                     </div>
                     <div className="col-4">
-                        <div style={{ textAlign: "center" }}>
-                            Chart
+                        <div style={{ textAlign: "center", marginTop: "10px" }}>
+                            <Pie
+                                data={{
+                                    labels: graphData.labels,
+                                    datasets: graphData.datasets
+                                }}
+                                height="200%"
+                            />
                         </div>
                     </div>
                 </div>
@@ -89,6 +103,6 @@ const mainDivHomepage = {
 const MainDiv = {
     margin: "auto",
     marginTop: "30px",
-    width: "70%"
+    width: "80%"
 }
 export default Statistics;
