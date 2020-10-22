@@ -15,27 +15,24 @@ const Level2 = (props) => {
 
     let history = useHistory();
 
-    const shapes = [{ id:0,name:"Triangle", text: "I have three sides and are sharp.What am I?" }, { id:1,name:"Square", text: "I have four sides and are equal.What am I?" }, { id:2,name:"Rectangle", text: "I have two long sides and two short sides.What am I?" }, { id:3,name:"Circle", text: "I have no sides, same from everywhere.What am I?" }]
-    const [shapesList, setShapes] = useState(shapes);
+    const shapes = [{ id: "0", name: "Triangle", text: "I have three sides and are sharp.What am I?" }, { id: "1", name: "Square", text: "I have four sides and are equal.What am I?" }, { id: "2", name: "Rectangle", text: "I have two long sides and two short sides.What am I?" }, { id: "3", name: "Circle", text: "I have no sides, same from everywhere.What am I?" }]
+    const [shapesList] = useState(shapes);
     const [count, setCount] = useState(0);
     const shapesHandle = (event) => {
-    
-        if(shapesList[count].id == event.target.id ){
+        if (shapesList[count].id === event.target.id) {
             alert('You Choose Correct');
         }
         else {
             alert('You Choose Wrong');
         }
-        setCount(count+1);
+        setCount(count + 1);
 
-        if (count+1 === 4){
+        if (count + 1 === 4) {
             alert("Next Level");
             history.push('/dashboard/games/shapes/level2');
 
         }
-
     };
-
 
     return (
         <div>
@@ -46,7 +43,7 @@ const Level2 = (props) => {
                     <div className="col-4" style={{ marginTop: "-5%" }}>
                         <div style={CenterContent}>
                             <div style={FrameBackgroundImageSetter}>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -55,18 +52,18 @@ const Level2 = (props) => {
                             <div style={BackgroundImageSetter}>
                                 <div className="row" style={{ marginTop: "12%", marginLeft: "10%" }}>
                                     <div className="col-6"  >
-                                        <img src={Dice} height="50%" width="auto" alt="box" id="0" onClick={shapesHandle}/>
+                                        <img src={Dice} height="50%" width="auto" alt="box" id="0" onClick={shapesHandle} />
                                     </div>
                                     <div className="col-6" style={{ marginTop: "-4%" }}>
-                                        <img src={Football} height="60%" width="auto" alt="box" id="1" onClick={shapesHandle}/>
+                                        <img src={Football} height="60%" width="auto" alt="box" id="1" onClick={shapesHandle} />
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "20%", marginLeft: "10%" }}>
                                     <div className="col-6">
-                                        <img src={Box} height="50%" width="auto" alt="box" id="2" onClick={shapesHandle}/>
+                                        <img src={Box} height="50%" width="auto" alt="box" id="2" onClick={shapesHandle} />
                                     </div>
                                     <div className="col-6">
-                                        <img src={Sandwich} height="50%" width="auto" alt="box" id="3" onClick={shapesHandle}/>
+                                        <img src={Sandwich} height="50%" width="auto" alt="box" id="3" onClick={shapesHandle} />
                                     </div>
                                 </div>
 
@@ -104,7 +101,7 @@ const FrameBackgroundImageSetter = {
     backgroundPosition: "center",
     backgroundRepeat: "no-repear",
     backgroundSize: "100% 100%",
-    marginLeft:"-40%"
+    marginLeft: "-40%"
 }
 
 const CenterContent = {

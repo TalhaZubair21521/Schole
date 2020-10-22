@@ -1,106 +1,191 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import CountingLevel1 from "../../../../../assets/bgs/countingBg.png";
 import Card from "../../../../../assets/countingLevelsImages/card2.png";
 
-import Ballon1 from "../../../../../assets/countingLevelsImages/b1.png";
-import Ballon2 from "../../../../../assets/countingLevelsImages/b2.png";
-import Ballon3 from "../../../../../assets/countingLevelsImages/b3.png";
-import Ballon4 from "../../../../../assets/countingLevelsImages/b4.png";
-import Ballon5 from "../../../../../assets/countingLevelsImages/b5.png";
-import Hoop from "../../../../../assets/countingLevelsImages/hoop.png";
-import Button from "../../../../../assets/countingLevelsImages/submit.png";
+import Ball1 from "../../../../../assets/countingLevelsImages/5.png";
+import Ball2 from "../../../../../assets/countingLevelsImages/10.png";
+import Ball3 from "../../../../../assets/countingLevelsImages/15.png";
+import Ball4 from "../../../../../assets/countingLevelsImages/20.png";
+import Ball5 from "../../../../../assets/countingLevelsImages/25.png";
+import Ball6 from "../../../../../assets/countingLevelsImages/30.png";
+import Ball7 from "../../../../../assets/countingLevelsImages/35.png";
+import Ball8 from "../../../../../assets/countingLevelsImages/40.png";
+import Ball9 from "../../../../../assets/countingLevelsImages/45.png";
+import Ball10 from "../../../../../assets/countingLevelsImages/50.png";
 
-const Level2 = (props) => {
+import Hoop from "../../../../../assets/countingLevelsImages/hoop.png";
+import { useHistory } from "react-router-dom";
+import BallonImage from "./DragImage/DragImage";
+import DropImage from "./DropImage/DropImage";
+
+const Level2 = () => {
+
+    let history = useHistory();
+
+    const nums = [25, 10, 50, 40, 5, 20, 15, 35, 30, 45];
+    const [numbers] = useState(nums);
+
+    const [selected, setSelected] = useState(0);
+
+    const ballons = [{ id: 0, src: Ball1, number: 5 }, { id: 1, src: Ball2, number: 10 }, { id: 2, src: Ball3, number: 15 }, { id: 3, src: Ball4, number: 20 }, { id: 4, src: Ball5, number: 25 }, { id: 5, src: Ball6, number: 30 }, { id: 6, src: Ball7, number: 35 }, { id: 7, src: Ball8, number: 40 }, { id: 8, src: Ball9, number: 45 }, { id: 9, src: Ball10, number: 50 }]
+    const [ballonsImages, setBallonsImages] = useState(ballons);
+
+    const updateBallonImages = (id) => {
+        const newBallons = ballonsImages.filter((ballon) => {
+            if (ballon.id === id) {
+                if (ballon.number !== numbers[selected]) {
+                    alert("Not Matched");
+                    return ballon;
+                } else {
+                    ballon.id = -1;
+                    ballon.number = 0;
+                    ballon.src = null
+                    setSelected(selected + 1);
+                    if (selected === 9) {
+                        alert("Next Game");
+                        history.push("/dashboard/games/counting/level3");
+                    }
+                    return ballon;
+                }
+            } else {
+                return true;
+            }
+        });
+        setBallonsImages(newBallons);
+        console.log(ballonsImages);
+    }
+
     return (
         <div>
             <Navbar seriesNumber={"1"} seriesLevel={"2"} seriesName={"Counting"} />
             <div style={mainDivHomepage}>
-                    <div style={CenterContent}>
-                        <div style={BackgroundImageSetter}>
-                            <div className="row" style={{marginTop:"8%"}}>
-                                <div className="col-2"></div>
-                                <div className="col-10">
-                                <h2>Throw The Number on Respective Balls</h2>
-                                </div>
+                <div style={CenterContent}>
+                    <div style={BackgroundImageSetter}>
+                        <div className="row" style={{ marginTop: "8%" }}>
+                            <div className="col-2"></div>
+                            <div className="col-10" style={{ color: "red", fontSize: "1.7rem" }}>
+                                <p>Throw The Number on Respective Balls</p>
                             </div>
-                            <div className="row" style={{marginLeft:"10%",marginTop:"1%"}}>
-                                <div className="col-2">
-                                    <img src={Ballon1} alt="ballon" />
-                                </div>
-                                <div className="col-3">
-                                    <img src={Ballon2} alt="ballon" />
-                                </div>
-                                <div className="col-2">
-                                    <img src={Ballon3} alt="ballon" />
-                                </div>
-                                <div className="col-2">
-                                    <img src={Ballon1} alt="ballon" />
-                                </div>
-                                <div className="col-2">
-                                    <img src={Ballon4} alt="ballon" />
-                                </div>
+                        </div>
+                        <div className="row" style={{ marginLeft: "14%", marginTop: "1%" }}>
+                            <div className="col-2">
+                                {
+                                    (ballonsImages.filter((ballon) => ballon.number === 5)).length !== 0 ?
+                                        <BallonImage id={ballonsImages[0].id} imageSrc={Ball1} /> :
+                                        <div />
+                                }
                             </div>
-                            <div className="row" >
-                                <div className="col-3" style={{marginLeft:"15%"}}>
-                                    <img src={Ballon5} alt="ballon" />
-                                </div>
-                                <div className="col-2">
-                                </div>
-                                <div className="col-2">
-                                    <img src={Ballon4} alt="ballon" />
-                                </div>
-                                <div className="col-2">
-                                    <img src={Ballon1} alt="ballon" />
-                                </div>
+                            <div className="col-2">
+                                {
+                                    (ballonsImages.filter((ballon) => ballon.number === 10)).length !== 0 ?
+                                        <BallonImage id={ballonsImages[1].id} imageSrc={Ball2} /> :
+                                        <div />
+                                }
                             </div>
-                            <div className="row" style={{marginTop:"2%"}}>
-                                <div className="col-3">
-                                </div>
-                                <div className="col-2">
-                                    <img src={Button} alt="ballon" style={{height:"50px",width:"auto"}}/>
-                                </div>
-                                <div className="col-1" style={{marginTop:"-4%"}}>
-                                    <img src={Hoop} alt="ballon" style={{height:"100px",width:"auto"}}/>
-                                </div>
+                            <div className="col-2">
+                                {
+                                    (ballonsImages.filter((ballon) => ballon.number === 15)).length !== 0 ?
+                                        <BallonImage id={ballonsImages[2].id} imageSrc={Ball3} /> :
+                                        <div />
+                                }
                             </div>
-                            <div className="row" style={{marginTop:"5%",paddingLeft:"14%"}}>
-                             
-                                <div className="col-1" style={{paddingTop:"1%",marginRight:"0.1%",borderRadius: "10px",backgroundColor:"orange",border:"1px solid",textAlign:"center"}}>
-                                    <h1>5</h1>
-                                </div>
-                                <div className="col-1" style={Number}>
-                                    <h1>15</h1>
-                                </div>
-                                <div className="col-1" style={Number}>
-                                    <h1>20</h1>
-                                </div>
-                                <div className="col-1" style={Number}>
-                                    <h1>1</h1>
-                                </div>
-                                <div className="col-1" style={Number}>
-                                    <h1>4</h1>
-                                </div>
-                                <div className="col-1" style={Number}>
-                                    <h1>10</h1>
-                                </div>
-                                <div className="col-1" style={Number}>
-                                    <h1>13</h1>
-                                </div>
-                                <div className="col-1" style={Number}>
-                                    <h1>2</h1>
-                                </div>
-                                <div className="col-1" style={Number}>
-                                    <h1>19</h1>
-                                </div>
-                                <div className="col-1" style={Number}>
-                                    <h1>1</h1>
-                                </div>
+                            <div className="col-2">
+                                {
+                                    (ballonsImages.filter((ballon) => ballon.number === 20)).length !== 0 ?
+                                        <BallonImage id={ballonsImages[3].id} imageSrc={Ball4} /> :
+                                        <div />
+                                }
                             </div>
-                        </div>                     
+                            <div className="col-2">
+                                {
+                                    (ballonsImages.filter((ballon) => ballon.number === 25)).length !== 0 ?
+                                        <BallonImage id={ballonsImages[4].id} imageSrc={Ball5} /> :
+                                        <div />
+                                }
+                            </div>
+                        </div>
+                        <div className="row" style={{ marginLeft: "14%", marginTop: "1%" }}>
+                            <div className="col-2">
+                                {
+                                    (ballonsImages.filter((ballon) => ballon.number === 30)).length !== 0 ?
+                                        <BallonImage id={ballonsImages[5].id} imageSrc={Ball6} /> :
+                                        <div />
+                                }
+                            </div>
+                            <div className="col-2">
+                                {
+                                    (ballonsImages.filter((ballon) => ballon.number === 35)).length !== 0 ?
+                                        <BallonImage id={ballonsImages[6].id} imageSrc={Ball7} /> :
+                                        <div />
+                                }
+                            </div>
+                            <div className="col-2">
+                                {
+                                    (ballonsImages.filter((ballon) => ballon.number === 40)).length !== 0 ?
+                                        <BallonImage id={ballonsImages[7].id} imageSrc={Ball8} /> :
+                                        <div />
+                                }
+                            </div>
+                            <div className="col-2">
+                                {
+                                    (ballonsImages.filter((ballon) => ballon.number === 45)).length !== 0 ?
+                                        <BallonImage id={ballonsImages[8].id} imageSrc={Ball9} /> :
+                                        <div />
+                                }
+                            </div>
+                            <div className="col-2">
+                                {
+                                    (ballonsImages.filter((ballon) => ballon.number === 50)).length !== 0 ?
+                                        <BallonImage id={ballonsImages[9].id} imageSrc={Ball10} /> :
+                                        <div />
+                                }
+                            </div>
+                        </div>
+                        <div className="row" style={{ marginTop: "5%" }}>
+                            <div className="col-3">
+                            </div>
+                            <div className="col-2">
+                            </div>
+                            <div className="col-1" style={{ marginTop: "-4%" }}>
+                                <DropImage imageSrc={Hoop} updateBallonImages={updateBallonImages} />
+                            </div>
+                        </div>
+                        <div className="row" style={{ marginTop: "2%", paddingLeft: "14%" }}>
+                            <div className="col-1" style={selected === 0 ? Number2 : Number}>
+                                <h1>{numbers[0]}</h1>
+                            </div>
+                            <div className="col-1" style={selected === 1 ? Number2 : Number}>
+                                <h1>{numbers[1]}</h1>
+                            </div>
+                            <div className="col-1" style={selected === 2 ? Number2 : Number}>
+                                <h1>{numbers[2]}</h1>
+                            </div>
+                            <div className="col-1" style={selected === 3 ? Number2 : Number}>
+                                <h1>{numbers[3]}</h1>
+                            </div>
+                            <div className="col-1" style={selected === 4 ? Number2 : Number}>
+                                <h1>{numbers[4]}</h1>
+                            </div>
+                            <div className="col-1" style={selected === 5 ? Number2 : Number}>
+                                <h1>{numbers[5]}</h1>
+                            </div>
+                            <div className="col-1" style={selected === 6 ? Number2 : Number}>
+                                <h1>{numbers[6]}</h1>
+                            </div>
+                            <div className="col-1" style={selected === 7 ? Number2 : Number}>
+                                <h1>{numbers[7]}</h1>
+                            </div>
+                            <div className="col-1" style={selected === 8 ? Number2 : Number}>
+                                <h1>{numbers[8]}</h1>
+                            </div>
+                            <div className="col-1" style={selected === 9 ? Number2 : Number}>
+                                <h1>{numbers[9]}</h1>
+                            </div>
+                        </div>
                     </div>
+                </div>
             </div>
-
         </div>
     );
 }
@@ -130,12 +215,20 @@ const BackgroundImageSetter = {
 }
 
 const Number = {
-    paddingTop:"1%",
-    marginRight:"0.1%",
+    paddingTop: "1%",
+    marginRight: "0.1%",
+    // borderRadius: "10px",
+    backgroundColor: "#E5E5E5",
+    border: "1px solid",
+    textAlign: "center"
+}
+const Number2 = {
+    paddingTop: "1%",
+    marginRight: "0.1%",
     borderRadius: "10px",
-    backgroundColor:"#E5E5E5",
-    border:"1px solid",
-    textAlign:"center"
+    backgroundColor: "orange",
+    border: "1px solid",
+    textAlign: "center"
 }
 
 export default Level2;
