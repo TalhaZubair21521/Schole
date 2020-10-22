@@ -18,7 +18,7 @@ const Level3 = (props) => {
 
     let history = useHistory();
 
-    const shapes = [{ id:"0",name:"Cube" }, { id:"1",name:"football"}, { id:"2",name:"box"}, { id:"3",name:"sandwich"}]
+    const shapes = [{ id:"0",name:"Cube",option:"Sphere" }, { id:"1",name:"Ball",option:"rectangle"}, { id:"2",name:"rectangle",option:"Cube"}, { id:"3",name:"Sphere",option:"Ball"}]
     const [shapesList] = useState(shapes);
     const [count, setCount] = useState(0);
     const shapesHandle = (event) => {
@@ -33,7 +33,7 @@ const Level3 = (props) => {
 
         if (count+1 === 4){
             alert("Next Level");
-            history.push('/dashboard/games/shapes/level3');
+            history.push('/dashboard/games/ordering/level1');
 
         }
 
@@ -81,11 +81,18 @@ const Level3 = (props) => {
                         <div style={CenterContent}>
                         <div className="container" style={{marginLeft:"30%"}}>
                                 <div className="row">
-                                        <h1>CUBOID</h1>
+                                        <h1 id={shapesList[count].id} onClick={shapesHandle}>{shapesList[count].name}</h1>
                                 </div>
                                 <div className="row">
-                                        <h1>SPHERE</h1>
+                                        <h1 id="4" onClick={shapesHandle}>{shapesList[count].option}</h1>
                                 </div>
+
+                                <div style={block}>
+                                    <button type="button" style={{...btn,color:'orange',borderColor:"orange"}} onClick={()=>history.push('/dashboard/games/ordering/level1')}>Cancel</button><br/>
+                                    <button type="button" style={{...btn,color:'red',borderColor:"red"}} onClick={()=>window.location.reload(false)}>Clear</button><br/>
+                                    <button type="button" style={{...btn,color:'green',borderColor:"green"}} onClick={()=>alert('Complete the game first')}>Submit</button>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -129,6 +136,24 @@ const Radius = {
     border:"2px solid #52c405",
     borderRadius: "30%",
     padding:"5px"
+}
+const btn = {
+        border: "2px solid",
+        backgroundColor: "#f7f0ee",
+        padding: "7% 7%",
+        width:"200%",
+        fontSize: "1.3rem",
+        marginTop:"3%"
+}
+
+
+
+const block = {
+    position: "absolute",
+    top: "1%",
+    right: "1%",
+    marginRight:"20%",
+    marginTop:"2%"
 }
 
 export default Level3;

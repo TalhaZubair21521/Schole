@@ -50,7 +50,8 @@ const Level2 = (props) => {
             <Navbar seriesNumber={"3"} seriesLevel={"2"} seriesName={"Shapes"} />
             <div style={mainDivHomepage}>
                 <div className="row" >
-                    <div className="col-4" style={{ marginTop: "-3%" }}>
+                    <div className="col-1"></div>
+                    <div className="col-4" style={{ marginTop: "-4%" }}>
                         <div style={CenterContent}>
                             <div style={FrameBackgroundImageSetter}>
 
@@ -80,9 +81,9 @@ const Level2 = (props) => {
                         </div>
                     </div>
 
-                    <div className="col-3" style={{marginTop:"13%"}}>
-                                    <img src={Dialogue} height="20%" width="auto" alt="lion"/>
-                                    <img src={Lion} height="20%" width="auto" alt="lion"/>
+                    <div className="col-2" style={{marginTop:"17%"}}>
+                                    <img src={Dialogue} height="15%" width="auto" alt="lion"/>
+                                    <img src={Lion} height="15%" width="auto" alt="lion"/>
                     </div>
 
                     <div className="col-5">
@@ -114,7 +115,11 @@ const Level2 = (props) => {
                         </div>
                     </div>
                     
-                    
+                    <div style={block}>
+                                    <button type="button" style={{...btn,color:'orange',borderColor:"orange"}} onClick={()=>history.push('/dashboard/games/shapes/level3')}>Cancel</button><br/>
+                                    <button type="button" style={{...btn,color:'red',borderColor:"red"}} onClick={()=>window.location.reload(false)}>Clear</button><br/>
+                                    <button type="button" style={{...btn,color:'green',borderColor:"green"}} onClick={()=>alert('Complete the game first')}>Submit</button>
+                    </div>
 
                 </div>
             </div>
@@ -161,6 +166,25 @@ const Radius = {
     border:"2px solid #52c405",
     borderRadius: "30%",
     padding:"5px"
+}
+
+const btn = {
+    border: "2px solid",
+    backgroundColor: "#f7f0ee",
+    padding: "7% 7%",
+    width:"200%",
+    fontSize: "1.3rem",
+    marginTop:"2%"
+}
+
+
+
+const block = {
+position: "absolute",
+bottom: "15%",
+left: "0px",
+marginLeft:"3%",
+marginTop:"1%"
 }
 
 export default Level2;
