@@ -65,7 +65,7 @@ const Level2 = () => {
                         <div className="row" style={{ marginTop: "8%" }}>
                             <div className="col-2"></div>
                             <div className="col-10" style={{ color: "red", fontSize: "1.7rem" }}>
-                                <p>Throw The Number on Respective Balls</p>
+                                <p style={{ color: "#C84747" }}>Throw The Highlight Number Ball on the Hoop</p>
                             </div>
                         </div>
                         <div className="row" style={{ marginLeft: "14%", marginTop: "1%" }}>
@@ -205,10 +205,10 @@ const CenterContent = {
     marginTop: "-30px"
 }
 const BackgroundImageSetter = {
-    marginBottom: "8%",
+    marginBottom: "2%",
     backgroundImage: `url(${Card})`,
-    height: "80%",
-    width: "75%",
+    height: "95%",
+    width: "80%",
     backgroundPosition: "center",
     backgroundRepeat: "no-repear",
     backgroundSize: "100% 100%",
