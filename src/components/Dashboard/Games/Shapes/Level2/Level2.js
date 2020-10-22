@@ -4,22 +4,33 @@ import { useHistory } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import ShapeLevel2 from "../../../../../assets/shapesLevelsImages/Level2/bg.png";
 
-import Closet from "../../../../../assets/shapesLevelsImages/closet.png"
-import Frame from "../../../../../assets/shapesLevelsImages/frame.png"
-import Dice from "../../../../../assets/shapesLevelsImages/Level2/dice.png"
-import Football from "../../../../../assets/shapesLevelsImages/Level2/football.png"
-import Box from "../../../../../assets/shapesLevelsImages/Level2/box.png"
-import Sandwich from "../../../../../assets/shapesLevelsImages/Level2/sandwich.png"
+import Closet from "../../../../../assets/shapesLevelsImages/closet.png";
+import Frame from "../../../../../assets/shapesLevelsImages/frame.png";
+import Dice from "../../../../../assets/shapesLevelsImages/Level2/dice.png";
+import Football from "../../../../../assets/shapesLevelsImages/Level2/football.png";
+import Box from "../../../../../assets/shapesLevelsImages/Level2/box.png";
+import Sandwich from "../../../../../assets/shapesLevelsImages/Level2/sandwich.png";
+import Train from "../../../../../assets/shapesLevelsImages/Level2/train.png";
+
+import Ball from "../../../../../assets/shapesLevelsImages/Level2/ball.png";
+import Cone from "../../../../../assets/shapesLevelsImages/Level2/cone.png";
+import Cube from "../../../../../assets/shapesLevelsImages/Level2/cube.png";
+import Rectangle from "../../../../../assets/shapesLevelsImages/Level2/rectangle.png";
+
+import Lion from "../../../../../assets/shapesLevelsImages/Level2/lion.png";
+import Dialogue from "../../../../../assets/shapesLevelsImages/Level2/dialogue.png";
 
 const Level2 = (props) => {
 
     let history = useHistory();
 
-    const shapes = [{ id: "0", name: "Triangle", text: "I have three sides and are sharp.What am I?" }, { id: "1", name: "Square", text: "I have four sides and are equal.What am I?" }, { id: "2", name: "Rectangle", text: "I have two long sides and two short sides.What am I?" }, { id: "3", name: "Circle", text: "I have no sides, same from everywhere.What am I?" }]
+    const shapes = [{ id:"0",name:"Cube" }, { id:"1",name:"football"}, { id:"2",name:"box"}, { id:"3",name:"sandwich"}]
     const [shapesList] = useState(shapes);
     const [count, setCount] = useState(0);
     const shapesHandle = (event) => {
-        if (shapesList[count].id === event.target.id) {
+    
+        if(shapesList[count].id === event.target.id ){
+
             alert('You Choose Correct');
         }
         else {
@@ -29,7 +40,7 @@ const Level2 = (props) => {
 
         if (count + 1 === 4) {
             alert("Next Level");
-            history.push('/dashboard/games/shapes/level2');
+            history.push('/dashboard/games/shapes/level3');
 
         }
     };
@@ -39,14 +50,41 @@ const Level2 = (props) => {
             <Navbar seriesNumber={"3"} seriesLevel={"2"} seriesName={"Shapes"} />
             <div style={mainDivHomepage}>
                 <div className="row" >
-                    <div className="col-3"></div>
-                    <div className="col-4" style={{ marginTop: "-5%" }}>
+                    <div className="col-4" style={{ marginTop: "-3%" }}>
                         <div style={CenterContent}>
                             <div style={FrameBackgroundImageSetter}>
+
+                                <div className="row" style={{marginTop:"15%",marginLeft:"7%"}}>
+                                    <div className="col-2">
+                                        <img src={Ball} height="50%" width="auto" alt="box" style={count===1?Radius:null}/>
+                                    </div>
+                                    <div className="col-3"></div>
+                                    <div className="col-2">
+                                        <img src={Cone} height="60%" width="auto" alt="box" style={count===3?Radius:null}/>
+                                    </div>
+
+                                </div>
+                                <div className="row" style={{marginLeft:"10%"}}>
+                                    <div className="col-2" >
+                                        <img src={Cube} height="50%" width="auto" alt="box"  style={count===0?Radius:null}/>
+                                    </div>
+                                    <div className="col-2"></div>
+                                    <div className="col-2">
+                                        <img src={Rectangle} height="50%" width="auto" alt="box" style={count===2?Radius:null}/>
+                                    </div>
+
+                                </div>
+                                
 
                             </div>
                         </div>
                     </div>
+
+                    <div className="col-3" style={{marginTop:"13%"}}>
+                                    <img src={Dialogue} height="20%" width="auto" alt="lion"/>
+                                    <img src={Lion} height="20%" width="auto" alt="lion"/>
+                    </div>
+
                     <div className="col-5">
                         <div style={CenterContent}>
                             <div style={BackgroundImageSetter}>
@@ -66,10 +104,18 @@ const Level2 = (props) => {
                                         <img src={Sandwich} height="50%" width="auto" alt="box" id="3" onClick={shapesHandle} />
                                     </div>
                                 </div>
+                                <div className="row" style={{ marginTop: "5%", marginLeft: "10%" }}>
+                                    <div className="col-12">
+                                        <img src={Train}  height="auto" width="80%" alt="box" />
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
                     </div>
+                    
+                    
+
                 </div>
             </div>
         </div>
@@ -96,12 +142,11 @@ const BackgroundImageSetter = {
 
 const FrameBackgroundImageSetter = {
     backgroundImage: `url(${Frame})`,
-    height: "50%",
-    width: "60%",
+    height: "60%",
+    width: "70%",
     backgroundPosition: "center",
     backgroundRepeat: "no-repear",
-    backgroundSize: "100% 100%",
-    marginLeft: "-40%"
+    backgroundSize: "100% 100%"
 }
 
 const CenterContent = {
@@ -110,6 +155,12 @@ const CenterContent = {
     alignItems: "center",
     justifyContent: "center",
     marginTop: "-30px"
+}
+
+const Radius = {
+    border:"2px solid #52c405",
+    borderRadius: "30%",
+    padding:"5px"
 }
 
 export default Level2;
