@@ -30,21 +30,20 @@ const Level2 = (props) => {
     const shapesHandle = (event) => {
     
         if(shapesList[count].id === event.target.id ){
+
             alert('You Choose Correct');
         }
         else {
             alert('You Choose Wrong');
         }
-        setCount(count+1);
+        setCount(count + 1);
 
-        if (count+1 === 4){
+        if (count + 1 === 4) {
             alert("Next Level");
             history.push('/dashboard/games/shapes/level3');
 
         }
-
     };
-
 
     return (
         <div>
@@ -54,6 +53,7 @@ const Level2 = (props) => {
                     <div className="col-4" style={{ marginTop: "-3%" }}>
                         <div style={CenterContent}>
                             <div style={FrameBackgroundImageSetter}>
+
                                 <div className="row" style={{marginTop:"15%",marginLeft:"7%"}}>
                                     <div className="col-2">
                                         <img src={Ball} height="50%" width="auto" alt="box" style={count===1?Radius:null}/>
@@ -75,6 +75,7 @@ const Level2 = (props) => {
 
                                 </div>
                                 
+
                             </div>
                         </div>
                     </div>
@@ -89,18 +90,18 @@ const Level2 = (props) => {
                             <div style={BackgroundImageSetter}>
                                 <div className="row" style={{ marginTop: "12%", marginLeft: "10%" }}>
                                     <div className="col-6"  >
-                                        <img src={Dice} height="50%" width="auto" alt="box" id="0" onClick={shapesHandle}/>
+                                        <img src={Dice} height="50%" width="auto" alt="box" id="0" onClick={shapesHandle} />
                                     </div>
                                     <div className="col-6" style={{ marginTop: "-4%" }}>
-                                        <img src={Football} height="60%" width="auto" alt="box" id="1" onClick={shapesHandle}/>
+                                        <img src={Football} height="60%" width="auto" alt="box" id="1" onClick={shapesHandle} />
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "20%", marginLeft: "10%" }}>
                                     <div className="col-6">
-                                        <img src={Box} height="50%" width="auto" alt="box" id="2" onClick={shapesHandle}/>
+                                        <img src={Box} height="50%" width="auto" alt="box" id="2" onClick={shapesHandle} />
                                     </div>
                                     <div className="col-6">
-                                        <img src={Sandwich} height="50%" width="auto" alt="box" id="3" onClick={shapesHandle}/>
+                                        <img src={Sandwich} height="50%" width="auto" alt="box" id="3" onClick={shapesHandle} />
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "5%", marginLeft: "10%" }}>
