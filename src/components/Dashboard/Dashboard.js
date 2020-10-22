@@ -41,6 +41,8 @@ import OrdinalNumberLevel1 from "./Games/OrdinalNumber/Level1/Level1";
 import OrdinalNumberLevel2 from "./Games/OrdinalNumber/Level2/Level2";
 import OrdinalNumberLevel3 from "./Games/OrdinalNumber/Level3/Level3";
 
+import Statistics from "./Games/Statistics/Statistics";
+
 import Error404 from "../Errors/404Error";
 import Error401 from "../Errors/401Error";
 
@@ -84,6 +86,8 @@ const AuthenticatedOrdinalNumberLevel1 = Authenticator(OrdinalNumberLevel1);
 const AuthenticatedOrdinalNumberLevel2 = Authenticator(OrdinalNumberLevel2);
 const AuthenticatedOrdinalNumberLevel3 = Authenticator(OrdinalNumberLevel3);
 
+const AuthenticatedStatistics = Authenticator(Statistics);
+
 const Dashboard = () => {
     return (
         <Switch>
@@ -124,6 +128,8 @@ const Dashboard = () => {
             <Route exact path="/dashboard/games/ordinalnumber/level1" ><AuthenticatedOrdinalNumberLevel1 /></Route>
             <Route exact path="/dashboard/games/ordinalnumber/level2" ><AuthenticatedOrdinalNumberLevel2 /></Route>
             <Route exact path="/dashboard/games/ordinalnumber/level3" ><AuthenticatedOrdinalNumberLevel3 /></Route>
+
+            <Route exact path="/dashboard/games/statistics" ><AuthenticatedStatistics /></Route>
 
             <Route exact path="/Not-Authorized" ><Error401 /></Route>
             <Route><Error404 /></Route>
