@@ -27,11 +27,11 @@ const Level1 = (props) => {
     const cards = [{ id: 1, type: "empty", src: "", number: 0 }, { id: 2, type: "empty", src: "", number: 0 }, { id: 3, type: "empty", src: "", number: 0 }, { id: 4, type: "empty", src: "", number: 0 }, { id: 5, type: "empty", src: "", number: 0 }]
     const [cardImages, setCardImages] = useState(cards);
 
-    const [play] = useSound(Test,{ volume: 0.5 });
+    const [play] = useSound(Test, { volume: 0.5 });
     const [playOption, setPlayOtion] = useState(true);
 
-    const Play = ()=> {
-        if (playOption===true){
+    const Play = () => {
+        if (playOption === true) {
             play();
         }
         setPlayOtion(false);
@@ -193,7 +193,7 @@ const Level1 = (props) => {
                                             }
                                         </div>
                                         <div className="col-4">
-                                            <img width="100%" style={{ marginTop: "25px" }} src={Submit} onClick={evaluateResult} alt="box" />
+                                            {/* <img width="100%" style={{ marginTop: "25px" }} src={Submit} onClick={evaluateResult} alt="box" /> */}
                                         </div>
                                         <div className="col-2" />
                                     </div>
@@ -205,7 +205,7 @@ const Level1 = (props) => {
                 <div style={block}>
                     <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/counting/level2')}>Cancel</button><br />
                     <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
-                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => alert('Complete the game first')}>Submit</button>
+                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={evaluateResult}>Submit</button>
                 </div>
             </div>
         </div>
