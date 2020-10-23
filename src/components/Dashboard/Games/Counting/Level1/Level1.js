@@ -16,12 +16,26 @@ import BallonImage from "./DragImage/BallonImage";
 import CardImage from "./DropImage/CardImage";
 import { useHistory } from "react-router-dom";
 
+import useSound from 'use-sound';
+import Test from "../../../../../assets/sound/test.mp3"
+
+
 const Level1 = (props) => {
     let history = useHistory();
     const ballons = [{ number: 10, src: Ballon1 }, { number: 8, src: Ballon2 }, { number: 6, src: Ballon3 }, { number: 4, src: Ballon4 }, { number: 2, src: Ballon5 }]
     const [ballonImages, setballonImages] = useState(ballons);
     const cards = [{ id: 1, type: "empty", src: "", number: 0 }, { id: 2, type: "empty", src: "", number: 0 }, { id: 3, type: "empty", src: "", number: 0 }, { id: 4, type: "empty", src: "", number: 0 }, { id: 5, type: "empty", src: "", number: 0 }]
     const [cardImages, setCardImages] = useState(cards);
+
+    const [play] = useSound(Test,{ volume: 0.5 });
+    const [playOption, setPlayOtion] = useState(true);
+
+    const Play = ()=> {
+        if (playOption===true){
+            play();
+        }
+        setPlayOtion(false);
+    };
 
     const evaluateResult = () => {
         const completed = ((cardImages.filter(card => card.type === "empty")).length !== 0);
@@ -37,16 +51,18 @@ const Level1 = (props) => {
                 }
             }
             if (ordered) {
-                alert("Right Order");
+                // alert("Right Order");
                 history.push("/dashboard/games/counting/level2");
             } else {
-                alert("Wrong Order");
+                // alert("Wrong Order");
                 history.push("/dashboard/games/counting/level2");
             }
         }
     }
 
     const updateLocation = (id, cardId) => {
+        play();
+        setPlayOtion(true);
         const newBallonsList = ballonImages.filter(ballon => ballon.number !== id);
         const ballonDragged = ballonImages.filter(ballon => ballon.number === id);
         const card = cardImages.filter(card => card.id === cardId);
@@ -74,7 +90,7 @@ const Level1 = (props) => {
                         <div style={CenterContent}>
                             <div style={{ marginTop: "-20px" }}>
                                 <div className="row">
-                                    <div className="col-3">
+                                    <div className="col-3" onDrag={Play}>
                                         {
                                             ((ballonImages.filter(ballon => ballon.number === 10)).length !== 0) ? (
                                                 <BallonImage imageSrc={Ballon1} number={10} />
@@ -83,7 +99,7 @@ const Level1 = (props) => {
                                     </div>
                                     <div className="col-3" />
                                     <div className="col-3" />
-                                    <div className="col-3">
+                                    <div className="col-3" onDrag={Play}>
                                         {
                                             ((ballonImages.filter(ballon => ballon.number === 8)).length !== 0) ? (
                                                 <BallonImage imageSrc={Ballon2} number={8} />
@@ -186,7 +202,11 @@ const Level1 = (props) => {
                         </div>
                     </div>
                 </div>
-                <h1>Counting Level 1</h1>
+                <div style={block}>
+                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/counting/level2')}>Cancel</button><br />
+                    <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
+                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => alert('Complete the game first')}>Submit</button>
+                </div>
             </div>
         </div>
     );
@@ -214,5 +234,21 @@ const BackgroundImageSetter = {
     backgroundPosition: "center",
     backgroundRepeat: "no-repear",
     backgroundSize: "100% 100%",
+}
+const btn = {
+    border: "2px solid",
+    backgroundColor: "#f7f0ee",
+    padding: "7% 7%",
+    width: "200%",
+    fontSize: "1.3rem",
+    marginTop: "2%"
+}
+
+const block = {
+    position: "absolute",
+    top: "0px",
+    left: "0px",
+    marginLeft: "3%",
+    marginTop: "1%"
 }
 export default Level1;

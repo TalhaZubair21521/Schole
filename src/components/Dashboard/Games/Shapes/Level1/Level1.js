@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-// import useSound from 'use-sound';
 
-// import Test from "../../../../../assets/sound/test.mp3"
+import useSound from 'use-sound';
+import Test from "../../../../../assets/sound/test.mp3";
 
 import Navbar from "../../Navbar/Navbar";
 import CountingLevel1 from "../../../../../assets/bgs/shapesBg.png";
@@ -20,26 +20,42 @@ const Level1 = (props) => {
     const shapes = [{ id:"0",name:"Triangle", text: "I have three sides and are sharp.What am I?" }, { id:"1",name:"Square", text: "I have four sides and are equal.What am I?" }, { id:"2",name:"Rectangle", text: "I have two long sides and two short sides.What am I?" }, { id:"3",name:"Circle", text: "I have no sides, same from everywhere.What am I?" }]
     const [shapesList] = useState(shapes);
     const [count, setCount] = useState(0);
+    // const [design, setDesign] = useState(false);
 
-    // const [play] = useSound(Test,{ volume: 0.25 });
+    const [play] = useSound(Test,{ volume: 0.25 });
 
     const shapesHandle = (event) => {
-    
+        play();
+
         if(shapesList[count].id === event.target.id ){
             alert('You Choose Correct');
         }
         else {
             alert('You Choose Wrong');
         }
+
         setCount(count+1);
 
-        if (count+1 === 4){
+            if (count+1 === 4){
             alert("Next Level");
             history.push('/dashboard/games/shapes/level2');
 
         }
+        
+        
 
     };
+
+    const ImageHover = (event) => {
+        event.target.style.height = "100%"
+
+    };
+
+    const ImageHoverOff = (event) => {
+        event.target.style.height = "90%"
+
+    };
+
 
     return (
         <div>
@@ -50,16 +66,16 @@ const Level1 = (props) => {
                     <div className="col-4" style={{ marginTop: "-5%" }}>
                         <div style={CenterContent}>
                             <div style={FrameBackgroundImageSetter}>
-                                <div className="row" style={{ marginTop: "10%", color: "#C84747" }}>
+                                <div className="row" style={{ marginTop: "10%",color: "#C84747"}}>
                                     <div className="col-2"></div>
                                     <div className="col-6">
-                                        <h3>{shapesList[count].name}</h3>
+                                        <h3 >{shapesList[count].name}</h3>
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "10%", color: "#C84747" }}>
                                     <div className="col-2"></div>
-                                    <div className="col-9">
-                                        <p>{shapesList[count].text}</p>
+                                    <div className="col-9" style={{}}>
+                                        <p >{shapesList[count].text}</p>
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "-10px", color: "#C84747", textAlign: "center", fontSize: "0.5rem" }}>
@@ -77,18 +93,22 @@ const Level1 = (props) => {
                             <div style={BackgroundImageSetter}>
                                 <div className="row" style={{ marginTop: "12%", marginLeft: "10%" }}>
                                     <div className="col-6" style={{ marginTop: "4%" }} >
-                                        <img src={Triangle} alt="box" id="0" onClick={shapesHandle}/>
+                                        <img src={Triangle} alt="box" id="0" height="90%" onClick={shapesHandle} 
+                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
                                     </div>
                                     <div className="col-6">
-                                        <img src={Square} alt="box" id="1" onClick={shapesHandle}/>
+                                        <img src={Square} alt="box" id="1" height="90%" onClick={shapesHandle} 
+                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "35%", marginLeft: "10%" }}>
                                     <div className="col-6">
-                                        <img src={Rectangle} alt="box" id="2" onClick={shapesHandle}/>
+                                        <img src={Rectangle} alt="box" id="2" height="90%" onClick={shapesHandle} 
+                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
                                     </div>
                                     <div className="col-6">
-                                        <img src={Circle} alt="box" id="3" onClick={shapesHandle}/>
+                                        <img src={Circle} alt="box" id="3" height="90%" onClick={shapesHandle} 
+                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
                                     </div>
                                 </div>
 
@@ -158,5 +178,6 @@ left: "0px",
 marginLeft:"3%",
 marginTop:"1%"
 }
+
 
 export default Level1;
