@@ -19,6 +19,9 @@ import { useHistory } from "react-router-dom";
 import BallonImage from "./DragImage/DragImage";
 import DropImage from "./DropImage/DropImage";
 
+import useSound from 'use-sound';
+import Test from "../../../../../assets/sound/test.mp3"
+
 const Level2 = () => {
 
     let history = useHistory();
@@ -31,7 +34,10 @@ const Level2 = () => {
     const ballons = [{ id: 0, src: Ball1, number: 5 }, { id: 1, src: Ball2, number: 10 }, { id: 2, src: Ball3, number: 15 }, { id: 3, src: Ball4, number: 20 }, { id: 4, src: Ball5, number: 25 }, { id: 5, src: Ball6, number: 30 }, { id: 6, src: Ball7, number: 35 }, { id: 7, src: Ball8, number: 40 }, { id: 8, src: Ball9, number: 45 }, { id: 9, src: Ball10, number: 50 }]
     const [ballonsImages, setBallonsImages] = useState(ballons);
 
+    const [play] = useSound(Test,{ volume: 0.5 });
+
     const updateBallonImages = (id) => {
+        play();
         const newBallons = ballonsImages.filter((ballon) => {
             if (ballon.id === id) {
                 if (ballon.number !== numbers[selected]) {
