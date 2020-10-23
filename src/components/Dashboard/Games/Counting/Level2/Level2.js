@@ -35,7 +35,7 @@ const Level2 = () => {
         const newBallons = ballonsImages.filter((ballon) => {
             if (ballon.id === id) {
                 if (ballon.number !== numbers[selected]) {
-                    alert("Not Matched");
+                    // alert("Not Matched");
                     return ballon;
                 } else {
                     ballon.id = -1;
@@ -43,7 +43,7 @@ const Level2 = () => {
                     ballon.src = null
                     setSelected(selected + 1);
                     if (selected === 9) {
-                        alert("Next Game");
+                        // alert("Next Game");
                         history.push("/dashboard/games/counting/level3");
                     }
                     return ballon;
@@ -185,6 +185,11 @@ const Level2 = () => {
                         </div>
                     </div>
                 </div>
+                <div style={block}>
+                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/counting/level3')}>Cancel</button><br />
+                    <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
+                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => alert('Complete the game first')}>Submit</button>
+                </div>
             </div>
         </div>
     );
@@ -231,4 +236,20 @@ const Number2 = {
     textAlign: "center"
 }
 
+const btn = {
+    border: "2px solid",
+    backgroundColor: "#f7f0ee",
+    padding: "7% 7%",
+    width: "200%",
+    fontSize: "1.3rem",
+    marginTop: "2%"
+}
+
+const block = {
+    position: "absolute",
+    top: "0px",
+    left: "0px",
+    marginLeft: "3%",
+    marginTop: "1%"
+}
 export default Level2;
