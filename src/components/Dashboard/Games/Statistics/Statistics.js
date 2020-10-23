@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import Background from "../../../../assets/bg3.png";
-import { Pie } from "react-chartjs-2";
+import { Radar } from "react-chartjs-2";
 const Statistics = (props) => {
 
-    const [overall] = useState({ label: "Overall Progress", color: "linear-gradient(#136A8A,#267871)", percentage: "70%" })
+    const [overall] = useState({ label: "Overall Progress", color: "#136A8A", percentage: "70%" })
     const [stats] = useState([
         { label: "Logic", color: "linear-gradient(#C84E89,#F15F79)", percentage: "70%" },
         { label: "Mathematics", color: "linear-gradient(#BF5AE0,#A811DA)", percentage: "50%" },
@@ -12,14 +12,48 @@ const Statistics = (props) => {
         { label: "Visualization", color: "linear-gradient(#16A085,#F4D03F)", percentage: "80%" },
         { label: "Exploration", color: "linear-gradient(#FF512F,#F09819)", percentage: "60%" }
     ]);
-    const [graphData] = useState({
-        labels: ['Logic', 'Mathematics', 'Sequencing', 'Visualization', 'Exploration'],
-        datasets: [{
-            data: [70, 50, 60, 80, 60],
-            backgroundColor: ['red', 'blue', 'green', 'orange', 'purple']
-        }]
-    })
+    const [data] = useState({
+        labels: [
+            "Logic",
+            "Mathematics",
+            "Sequencing",
+            "Visualization",
+            "Exploration"],
+        datasets: [
+            {
+                label: "Summary",
+                backgroundColor: "rgba(19, 106, 138, 0.7)",
+                // borderColor: "#C84747",
+                pointBackgroundColor: "#C84747",
+                data: [70, 50, 60, 80, 60]
+            }
+        ]
+    });
 
+    const [options] = useState({
+        title: {
+            display: false,
+            text: 'Summary'
+        },
+        scale: {
+            reverse: false,
+            gridLines: {
+                color: [
+                    'gray',
+                    'gray',
+                    'gray',
+                    'gray',
+                    'gray',
+                    'gray',
+                    'gray',
+                    'gray'
+                ]
+            },
+            ticks: {
+                beginAtZero: true
+            }
+        }
+    })
     return (
         <div style={mainDivHomepage}>
             <Navbar />
@@ -39,7 +73,7 @@ const Statistics = (props) => {
                                 <div className="container">
                                     <div class="container">
                                         <div class="progress" style={{ height: "40px" }}>
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style={{ width: overall.percentage, backgroundImage: overall.color }}>
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style={{ width: overall.percentage, backgroundColor: overall.color }}>
                                                 {overall.percentage}
                                             </div>
                                         </div>
@@ -77,13 +111,11 @@ const Statistics = (props) => {
                         })}
                     </div>
                     <div className="col-4">
-                        <div style={{ textAlign: "center", marginTop: "10px" }}>
-                            <Pie
-                                data={{
-                                    labels: graphData.labels,
-                                    datasets: graphData.datasets
-                                }}
-                                height="200%"
+                        <div style={{ textAlign: "center", marginTop: "-10px" }}>
+                            <Radar
+                                data={data}
+                                options={options}
+                                height="250%"
                             />
                         </div>
                     </div>
