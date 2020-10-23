@@ -16,12 +16,26 @@ import BallonImage from "./DragImage/BallonImage";
 import CardImage from "./DropImage/CardImage";
 import { useHistory } from "react-router-dom";
 
+import useSound from 'use-sound';
+import Test from "../../../../../assets/sound/test.mp3"
+
+
 const Level1 = (props) => {
     let history = useHistory();
     const ballons = [{ number: 10, src: Ballon1 }, { number: 8, src: Ballon2 }, { number: 6, src: Ballon3 }, { number: 4, src: Ballon4 }, { number: 2, src: Ballon5 }]
     const [ballonImages, setballonImages] = useState(ballons);
     const cards = [{ id: 1, type: "empty", src: "", number: 0 }, { id: 2, type: "empty", src: "", number: 0 }, { id: 3, type: "empty", src: "", number: 0 }, { id: 4, type: "empty", src: "", number: 0 }, { id: 5, type: "empty", src: "", number: 0 }]
     const [cardImages, setCardImages] = useState(cards);
+
+    const [play] = useSound(Test,{ volume: 0.5 });
+    const [playOption, setPlayOtion] = useState(true);
+
+    const Play = ()=> {
+        if (playOption===true){
+            play();
+        }
+        setPlayOtion(false);
+    };
 
     const evaluateResult = () => {
         const completed = ((cardImages.filter(card => card.type === "empty")).length !== 0);
@@ -47,6 +61,8 @@ const Level1 = (props) => {
     }
 
     const updateLocation = (id, cardId) => {
+        play();
+        setPlayOtion(true);
         const newBallonsList = ballonImages.filter(ballon => ballon.number !== id);
         const ballonDragged = ballonImages.filter(ballon => ballon.number === id);
         const card = cardImages.filter(card => card.id === cardId);
@@ -74,7 +90,7 @@ const Level1 = (props) => {
                         <div style={CenterContent}>
                             <div style={{ marginTop: "-20px" }}>
                                 <div className="row">
-                                    <div className="col-3">
+                                    <div className="col-3" onDrag={Play}>
                                         {
                                             ((ballonImages.filter(ballon => ballon.number === 10)).length !== 0) ? (
                                                 <BallonImage imageSrc={Ballon1} number={10} />
@@ -83,7 +99,7 @@ const Level1 = (props) => {
                                     </div>
                                     <div className="col-3" />
                                     <div className="col-3" />
-                                    <div className="col-3">
+                                    <div className="col-3" onDrag={Play}>
                                         {
                                             ((ballonImages.filter(ballon => ballon.number === 8)).length !== 0) ? (
                                                 <BallonImage imageSrc={Ballon2} number={8} />

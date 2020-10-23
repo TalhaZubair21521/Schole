@@ -4,6 +4,7 @@ import { ItemTypes } from "../../../../../../utils/types";
 
 const BallonImage = (props) => {
     const [{ isDragging }, drag] = useDrag({
+        
         item: {
             type: ItemTypes.CARD,
             id: props.number
