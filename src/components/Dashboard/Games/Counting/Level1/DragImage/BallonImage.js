@@ -12,7 +12,7 @@ const BallonImage = (props) => {
         collect: monitor => ({
             isDragging: !!monitor.isDragging()
         })
-    })
+    });
     return (
         <img
             style={{ opacity: isDragging ? '0.3' : 1 }}

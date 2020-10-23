@@ -16,7 +16,7 @@ const Navbar = (props) => {
     //     }, 1000);
     //     return () => clearInterval(interval);
     //   }, [counter]);
-    
+
 
     return (
         <div className="navbar row" style={item}>
@@ -31,6 +31,7 @@ const Navbar = (props) => {
             </div>
             <Link to="/dashboard">
                 <div className="col-1"><button style={{ color: "white", backgroundColor: "#C84747", textDecoration: "none", border: "none", borderRadius: "5px",borderColor: "red", padding: "7px 30px", marginRight: "50px" }}>Leave</button></div>
+
             </Link>
         </div>
     );
