@@ -4,6 +4,9 @@ import { useHistory } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import ShapeLevel2 from "../../../../../assets/shapesLevelsImages/Level2/bg.png";
 
+import useSound from 'use-sound';
+import Test from "../../../../../assets/sound/test.mp3";
+
 import Closet from "../../../../../assets/shapesLevelsImages/closet.png";
 import Frame from "../../../../../assets/shapesLevelsImages/frame.png";
 import Dice from "../../../../../assets/shapesLevelsImages/Level2/dice.png";
@@ -27,8 +30,12 @@ const Level2 = (props) => {
     const shapes = [{ id:"0",name:"Cube" }, { id:"1",name:"football"}, { id:"2",name:"box"}, { id:"3",name:"sandwich"}]
     const [shapesList] = useState(shapes);
     const [count, setCount] = useState(0);
+
+    const [play] = useSound(Test,{ volume: 0.5 });
+
     const shapesHandle = (event) => {
-    
+        play();
+        
         if(shapesList[count].id === event.target.id ){
 
             alert('You Choose Correct');
@@ -43,6 +50,16 @@ const Level2 = (props) => {
             history.push('/dashboard/games/shapes/level3');
 
         }
+    };
+
+    const ImageHover = (event) => {
+        event.target.style.height = "65%"
+
+    };
+
+    const ImageHoverOff = (event) => {
+        event.target.style.height = "55%"
+
     };
 
     return (
@@ -91,18 +108,22 @@ const Level2 = (props) => {
                             <div style={BackgroundImageSetter}>
                                 <div className="row" style={{ marginTop: "12%", marginLeft: "10%" }}>
                                     <div className="col-6"  >
-                                        <img src={Dice} height="50%" width="auto" alt="box" id="0" onClick={shapesHandle} />
+                                        <img src={Dice} height="50%" width="auto" alt="box" id="0"  onClick={shapesHandle} 
+                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
                                     </div>
                                     <div className="col-6" style={{ marginTop: "-4%" }}>
-                                        <img src={Football} height="60%" width="auto" alt="box" id="1" onClick={shapesHandle} />
+                                        <img src={Football} height="60%" width="auto" alt="box" id="1"  onClick={shapesHandle} 
+                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "20%", marginLeft: "10%" }}>
                                     <div className="col-6">
-                                        <img src={Box} height="50%" width="auto" alt="box" id="2" onClick={shapesHandle} />
+                                        <img src={Box} height="50%" width="auto" alt="box" id="2"  onClick={shapesHandle} 
+                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
                                     </div>
                                     <div className="col-6">
-                                        <img src={Sandwich} height="50%" width="auto" alt="box" id="3" onClick={shapesHandle} />
+                                        <img src={Sandwich} height="50%" width="auto" alt="box" id="3"  onClick={shapesHandle} 
+                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "5%", marginLeft: "10%" }}>
