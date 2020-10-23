@@ -37,10 +37,10 @@ const Level1 = (props) => {
                 }
             }
             if (ordered) {
-                alert("Right Order");
+                // alert("Right Order");
                 history.push("/dashboard/games/counting/level2");
             } else {
-                alert("Wrong Order");
+                // alert("Wrong Order");
                 history.push("/dashboard/games/counting/level2");
             }
         }
