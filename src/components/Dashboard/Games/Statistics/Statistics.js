@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import Background from "../../../../assets/bg3.png";
-import { Radar } from "react-chartjs-2";
+import { Radar, Chart } from "react-chartjs-2";
+
+Chart.defaults.global.defaultFontColor = 'black';
+Chart.defaults.global.defaultFontSize = 14;
+Chart.defaults.global.title.fontSize = 16;
 const Statistics = (props) => {
 
     const [overall] = useState({ label: "Overall Progress", color: "#136A8A", percentage: "70%" })
@@ -22,10 +26,11 @@ const Statistics = (props) => {
         datasets: [
             {
                 label: "Summary",
-                backgroundColor: "rgba(19, 106, 138, 0.7)",
-                // borderColor: "#C84747",
-                pointBackgroundColor: "#C84747",
-                data: [70, 50, 60, 80, 60]
+                backgroundColor: "rgba(106, 52, 240,0.8)",
+                color: "white",
+                // borderColor: "",
+                pointBackgroundColor: "#A03232",
+                data: [20, 20, 20, 20, 80]
             }
         ]
     });
@@ -36,17 +41,18 @@ const Statistics = (props) => {
             text: 'Summary'
         },
         scale: {
+            pointTable: {
+                fontColor: "red"
+            },
             reverse: false,
             gridLines: {
                 color: [
-                    'gray',
-                    'gray',
-                    'gray',
-                    'gray',
-                    'gray',
-                    'gray',
-                    'gray',
-                    'gray'
+                    'orange',
+                    'red',
+                    'blue',
+                    'green',
+                    'yellow',
+                    'orange',
                 ]
             },
             ticks: {
@@ -63,65 +69,65 @@ const Statistics = (props) => {
                 </div>
                 <div style={MainDiv}>
                     <div className="row">
-                        <div className="col-2">
-                            <div style={{ textAlign: "left", marginTop: "8px" }}>
-                                <b>{overall.label}</b>
-                            </div>
-                        </div>
-                        <div className="col-10">
-                            <div style={{ textAlign: "left" }}>
-                                <div className="container">
-                                    <div class="container">
-                                        <div class="progress" style={{ height: "40px" }}>
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style={{ width: overall.percentage, backgroundColor: overall.color }}>
-                                                {overall.percentage}
-                                            </div>
-                                        </div>
+                        <div className="col-7">
+                            <div className="row">
+                                <div className="col-3">
+                                    <div style={{ textAlign: "left", marginTop: "8px" }}>
+                                        <b>{overall.label}</b>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="row" style={MainDiv}>
-                    <div className="col-8">
-                        {stats.map(function (s) {
-                            return (
-                                <div key={s.label} className="row" style={{ marginTop: "20px" }}>
-                                    <div className="col-3">
-                                        <div style={{ textAlign: "left", marginTop: "2px" }}>
-                                            {s.label}
-                                        </div>
-                                    </div>
-                                    <div className="col-9">
-                                        <div style={{ textAlign: "left" }}>
+                                <div className="col-9">
+                                    <div style={{ textAlign: "left" }}>
+                                        <div className="container">
                                             <div className="container">
-                                                <div class="container">
-                                                    <div class="progress" style={{ height: "25px" }}>
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style={{ width: s.percentage, backgroundImage: s.color }}>
-                                                            {s.percentage}
-                                                        </div>
+                                                <div className="progress" style={{ height: "40px" }}>
+                                                    <div className="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style={{ width: overall.percentage, backgroundColor: overall.color }}>
+                                                        {overall.percentage}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            );
-                        })}
-                    </div>
-                    <div className="col-4">
-                        <div style={{ textAlign: "center", marginTop: "-10px" }}>
-                            <Radar
-                                data={data}
-                                options={options}
-                                height="250%"
-                            />
+                            </div>
+                            {stats.map(function (s) {
+                                return (
+                                    <div key={s.label} className="row" style={{ marginTop: "20px" }}>
+                                        <div className="col-3">
+                                            <div style={{ textAlign: "left", marginTop: "2px" }}>
+                                                {s.label}
+                                            </div>
+                                        </div>
+                                        <div className="col-9">
+                                            <div style={{ textAlign: "left" }}>
+                                                <div className="container">
+                                                    <div className="container">
+                                                        <div className="progress" style={{ height: "25px" }}>
+                                                            <div className="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style={{ width: s.percentage, backgroundImage: s.color }}>
+                                                                {s.percentage}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        <div className="col-5">
+                            <div style={{ textAlign: "center", backgroundImage: "", color: "black" }}>
+                                <Radar
+                                    data={data}
+                                    options={options}
+                                    height="200%"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 const mainDivHomepage = {
