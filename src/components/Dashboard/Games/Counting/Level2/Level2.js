@@ -70,11 +70,11 @@ const Level2 = () => {
                     <div style={BackgroundImageSetter}>
                         <div className="row" style={{ marginTop: "8%" }}>
                             <div className="col-2"></div>
-                            <div className="col-10" style={{ color: "red", fontSize: "1.7rem" }}>
+                            <div className="col-10" style={{ color: "red", fontSize: "1.3rem" }}>
                                 <p style={{ color: "#C84747" }}>Throw The Highlight Number Ball on the Hoop</p>
                             </div>
                         </div>
-                        <div className="row" style={{ marginLeft: "14%", marginTop: "1%" }}>
+                        <div className="row" style={{ marginLeft: "14%", marginTop: "0%" }}>
                             <div className="col-2">
                                 {
                                     (ballonsImages.filter((ballon) => ballon.number === 5)).length !== 0 ?
@@ -111,7 +111,7 @@ const Level2 = () => {
                                 }
                             </div>
                         </div>
-                        <div className="row" style={{ marginLeft: "14%", marginTop: "1%" }}>
+                        <div className="row" style={{ marginLeft: "14%", marginTop: "0  %" }}>
                             <div className="col-2">
                                 {
                                     (ballonsImages.filter((ballon) => ballon.number === 30)).length !== 0 ?
@@ -153,7 +153,7 @@ const Level2 = () => {
                             </div>
                             <div className="col-2">
                             </div>
-                            <div className="col-1" style={{ marginTop: "-4%" }}>
+                            <div className="col-1" style={{ marginTop: "-4%", marginLeft: "1%" }}>
                                 <DropImage imageSrc={Hoop} updateBallonImages={updateBallonImages} />
                             </div>
                         </div>
@@ -192,7 +192,7 @@ const Level2 = () => {
                     </div>
                 </div>
                 <div style={block}>
-                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/shapes/level1')}>Don't Know</button><br />
+                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/counting/level3')}>Don't Know</button><br />
                     <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
                     <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => alert('Complete the game first')}>Submit</button>
                 </div>
