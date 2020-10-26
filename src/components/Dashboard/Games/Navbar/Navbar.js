@@ -19,7 +19,7 @@ const Navbar = (props) => {
 
 
     return (
-        <div className="navbar row" style={item}>
+        <div className="navbar" style={item}>
             <div className="col-2">
                 <Link to="/dashboard"><img style={{ marginLeft: "1px", marginTop: "1px" }} height="70%" width="70%" src={Logo} alt="Schole Logo" /></Link>
             </div>
@@ -30,8 +30,7 @@ const Navbar = (props) => {
                 <img style={{ marginLeft: "0px", padding: "0px 5px" }} height="20%" width="20%" src={Timer} alt="Schole Logo" /> {"3:00"}
             </div>
             <Link to="/dashboard">
-                <div className="col-1"><button style={{ color: "white", backgroundColor: "#C84747", textDecoration: "none", border: "none", borderRadius: "5px",borderColor: "red", padding: "7px 30px", marginRight: "50px" }}>Leave</button></div>
-
+                <div className="col-1"><button style={{ color: "white", backgroundColor: "#C84747", textDecoration: "none", border: "none", borderRadius: "5px", borderColor: "red", padding: "7px 30px", marginRight: "50px" }}>Leave</button></div>
             </Link>
         </div>
     );
