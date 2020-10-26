@@ -50,7 +50,7 @@ const Level2 = () => {
                     setSelected(selected + 1);
                     if (selected === 9) {
                         // alert("Next Game");
-                        history.push("/dashboard/games/shapes/level1");
+                        history.push("/dashboard/games/counting/level3");
                     }
                     return ballon;
                 }

@@ -4,7 +4,6 @@ import CountingLevel1 from "../../../../../assets/bgs/countingBg.png";
 import Card from "../../../../../assets/countingLevelsImages/dropBallonCard.png";
 import EmptyBox from "../../../../../assets/countingLevelsImages/emptyBox.png";
 import FilledBox from "../../../../../assets/countingLevelsImages/filledBox.png";
-// import Submit from "../../../../../assets/countingLevelsImages/submit.png";
 
 import Ballon1 from "../../../../../assets/countingLevelsImages/b1.png";
 import Ballon2 from "../../../../../assets/countingLevelsImages/b2.png";
@@ -146,7 +145,7 @@ const Level1 = (props) => {
                         <div style={CenterContent}>
                             <div style={BackgroundImageSetter}>
                                 <div style={{ marginTop: "40px" }}>
-                                    <div className="row" style={{ textAlign: "center", margin: "auto", width: "60%", fontSize: "0.9rem", color: "#C84747", fontWeight: "bold", marginBottom: "20px" }}>Drop Here In Ascending Order</div>
+                                    <div className="row" style={{ textAlign: "center", margin: "auto", width: "60%", fontSize: "0.7rem", color: "#C84747", fontWeight: "bold", marginBottom: "20px" }}>Drop Here In Ascending Order from Left to Right</div>
                                     <div className="row">
                                         <div className="col-2" />
                                         <div className="col-4">
