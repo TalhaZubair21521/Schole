@@ -27,16 +27,16 @@ const Level2 = (props) => {
 
     let history = useHistory();
 
-    const shapes = [{ id:"0",name:"Cube" }, { id:"1",name:"football"}, { id:"2",name:"box"}, { id:"3",name:"sandwich"}]
+    const shapes = [{ id: "0", name: "Cube" }, { id: "1", name: "football" }, { id: "2", name: "box" }, { id: "3", name: "sandwich" }]
     const [shapesList] = useState(shapes);
     const [count, setCount] = useState(0);
 
-    const [play] = useSound(Test,{ volume: 0.5 });
+    const [play] = useSound(Test, { volume: 0.5 });
 
     const shapesHandle = (event) => {
         play();
-        
-        if(shapesList[count].id === event.target.id ){
+
+        if (shapesList[count].id === event.target.id) {
 
             alert('You Choose Correct');
         }
@@ -47,7 +47,7 @@ const Level2 = (props) => {
 
         if (count + 1 === 4) {
             alert("Next Level");
-            history.push('/dashboard/games/shapes/level3');
+            history.push('/dashboard/games/statistics');
 
         }
     };
@@ -72,35 +72,35 @@ const Level2 = (props) => {
                         <div style={CenterContent}>
                             <div style={FrameBackgroundImageSetter}>
 
-                                <div className="row" style={{marginTop:"15%",marginLeft:"7%"}}>
+                                <div className="row" style={{ marginTop: "15%", marginLeft: "7%" }}>
                                     <div className="col-2">
-                                        <img src={Ball} height="50%" width="auto" alt="box" style={count===1?Radius:null}/>
+                                        <img src={Ball} height="50%" width="auto" alt="box" style={count === 1 ? Radius : null} />
                                     </div>
                                     <div className="col-3"></div>
                                     <div className="col-2">
-                                        <img src={Cone} height="60%" width="auto" alt="box" style={count===3?Radius:null}/>
+                                        <img src={Cone} height="60%" width="auto" alt="box" style={count === 3 ? Radius : null} />
                                     </div>
 
                                 </div>
-                                <div className="row" style={{marginLeft:"10%"}}>
+                                <div className="row" style={{ marginLeft: "10%" }}>
                                     <div className="col-2" >
-                                        <img src={Cube} height="50%" width="auto" alt="box"  style={count===0?Radius:null}/>
+                                        <img src={Cube} height="50%" width="auto" alt="box" style={count === 0 ? Radius : null} />
                                     </div>
                                     <div className="col-2"></div>
                                     <div className="col-2">
-                                        <img src={Rectangle} height="50%" width="auto" alt="box" style={count===2?Radius:null}/>
+                                        <img src={Rectangle} height="50%" width="auto" alt="box" style={count === 2 ? Radius : null} />
                                     </div>
 
                                 </div>
-                                
+
 
                             </div>
                         </div>
                     </div>
 
-                    <div className="col-2" style={{marginTop:"17%"}}>
-                                    <img src={Dialogue} height="15%" width="auto" alt="lion"/>
-                                    <img src={Lion} height="15%" width="auto" alt="lion"/>
+                    <div className="col-2" style={{ marginTop: "17%" }}>
+                        <img src={Dialogue} height="7%" width="auto" alt="lion" />
+                        <img src={Lion} height="15%" width="auto" alt="lion" />
                     </div>
 
                     <div className="col-5">
@@ -108,38 +108,38 @@ const Level2 = (props) => {
                             <div style={BackgroundImageSetter}>
                                 <div className="row" style={{ marginTop: "12%", marginLeft: "10%" }}>
                                     <div className="col-6"  >
-                                        <img src={Dice} height="50%" width="auto" alt="box" id="0"  onClick={shapesHandle} 
-                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
+                                        <img src={Dice} height="50%" width="auto" alt="box" id="0" onClick={shapesHandle}
+                                            onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff} />
                                     </div>
                                     <div className="col-6" style={{ marginTop: "-4%" }}>
-                                        <img src={Football} height="60%" width="auto" alt="box" id="1"  onClick={shapesHandle} 
-                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
+                                        <img src={Football} height="60%" width="auto" alt="box" id="1" onClick={shapesHandle}
+                                            onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff} />
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "20%", marginLeft: "10%" }}>
                                     <div className="col-6">
-                                        <img src={Box} height="50%" width="auto" alt="box" id="2"  onClick={shapesHandle} 
-                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
+                                        <img src={Box} height="50%" width="auto" alt="box" id="2" onClick={shapesHandle}
+                                            onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff} />
                                     </div>
                                     <div className="col-6">
-                                        <img src={Sandwich} height="50%" width="auto" alt="box" id="3"  onClick={shapesHandle} 
-                                        onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff}/>
+                                        <img src={Sandwich} height="50%" width="auto" alt="box" id="3" onClick={shapesHandle}
+                                            onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff} />
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "5%", marginLeft: "10%" }}>
                                     <div className="col-12">
-                                        <img src={Train}  height="auto" width="80%" alt="box" />
+                                        <img src={Train} height="auto" width="80%" alt="box" />
                                     </div>
                                 </div>
 
                             </div>
                         </div>
                     </div>
-                    
+
                     <div style={block}>
-                                    <button type="button" style={{...btn,color:'orange',borderColor:"orange"}} onClick={()=>history.push('/dashboard/games/shapes/level3')}>Cancel</button><br/>
-                                    <button type="button" style={{...btn,color:'red',borderColor:"red"}} onClick={()=>window.location.reload(false)}>Clear</button><br/>
-                                    <button type="button" style={{...btn,color:'green',borderColor:"green"}} onClick={()=>alert('Complete the game first')}>Submit</button>
+                        <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/statistics')}>Cancel</button><br />
+                        <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
+                        <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => alert('Complete the game first')}>Submit</button>
                     </div>
 
                 </div>
@@ -184,28 +184,28 @@ const CenterContent = {
 }
 
 const Radius = {
-    border:"2px solid #52c405",
+    border: "2px solid #52c405",
     borderRadius: "30%",
-    padding:"5px"
+    padding: "5px"
 }
 
 const btn = {
     border: "2px solid",
     backgroundColor: "#f7f0ee",
     padding: "7% 7%",
-    width:"200%",
+    width: "200%",
     fontSize: "1.3rem",
-    marginTop:"2%"
+    marginTop: "2%"
 }
 
 
 
 const block = {
-position: "absolute",
-bottom: "15%",
-left: "0px",
-marginLeft:"3%",
-marginTop:"1%"
+    position: "absolute",
+    bottom: "15%",
+    left: "0px",
+    marginLeft: "3%",
+    marginTop: "1%"
 }
 
 export default Level2;
