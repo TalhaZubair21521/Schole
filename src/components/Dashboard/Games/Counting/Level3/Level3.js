@@ -21,20 +21,19 @@ import CardImage from "../../../../../assets/countingLevelsImages/lolipops/bg.pn
 const Level3 = (props) => {
     const history = useHistory();
     const data = [
-        { id: 0, src: L1, value: 10 },
-        { id: 1, src: L2, value: 20 },
-        { id: 2, src: L3, value: 30 },
-        { id: 3, src: L4, value: 40 },
-        { id: 4, src: L5, value: 50 },
-        { id: 5, src: L6, value: 60 },
-        { id: 6, src: L7, value: 70 },
+        { id: 0, src: L3, value: 30 },
+        { id: 1, src: L5, value: 50 },
+        { id: 2, src: L1, value: 10 },
+        { id: 3, src: L10, value: 100 },
+        { id: 4, src: L4, value: 40 },
+        { id: 5, src: L9, value: 90 },
+        { id: 6, src: L6, value: 60 },
         { id: 7, src: L8, value: 80 },
-        { id: 8, src: L9, value: 90 },
-        { id: 9, src: L10, value: 100 },
+        { id: 8, src: L7, value: 70 },
+        { id: 9, src: L2, value: 20 },
     ]
     const [images, setImages] = useState(data);
     const [count, setCount] = useState(0);
-
 
     const Submit = () => {
         const numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
