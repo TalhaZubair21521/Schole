@@ -120,7 +120,7 @@ const Statistics = (props) => {
                                 <Radar
                                     data={data}
                                     options={options}
-                                    height="200%"
+                                    height={200}
                                 />
                             </div>
                         </div>

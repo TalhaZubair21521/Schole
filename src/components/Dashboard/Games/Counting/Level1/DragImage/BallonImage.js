@@ -1,10 +1,9 @@
 import React from "react";
-import { useDrag } from "react-dnd";
+import { useDrag, DragPreviewImage } from "react-dnd";
 import { ItemTypes } from "../../../../../../utils/types";
 
 const BallonImage = (props) => {
-    const [{ isDragging }, drag] = useDrag({
-        
+    const [{ isDragging }, drag, preview] = useDrag({
         item: {
             type: ItemTypes.CARD,
             id: props.number
@@ -14,12 +13,15 @@ const BallonImage = (props) => {
         })
     });
     return (
-        <img
-            style={{ opacity: isDragging ? '0.3' : 1 }}
-            ref={drag}
-            src={props.imageSrc}
-            alt="ballon"
-        />
+        <div>
+            <DragPreviewImage connect={preview} src={props.imageSrc} />
+            <img
+                style={{ opacity: isDragging ? '0.3' : 1 }}
+                ref={drag}
+                src={props.imageSrc}
+                alt="ballon"
+            />
+        </div>
     );
 }
 
