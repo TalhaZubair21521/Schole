@@ -25,9 +25,9 @@ const Level3 = (props) => {
                     </div>
                 </div>
                 <div style={block}>
-                                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/subtraction/level2')}>Don't Know</button><br />
+                                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/ordinalnumber/level1')}>Don't Know</button><br />
                                     <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
-                                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => history.push('/dashboard/games/subtraction/level2')}>Submit</button>
+                                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => history.push('/dashboard/games/ordinalnumber/level1')}>Submit</button>
                         </div>
             </div>
         </div>

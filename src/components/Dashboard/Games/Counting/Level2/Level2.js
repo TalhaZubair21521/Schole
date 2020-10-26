@@ -253,9 +253,7 @@ const btn = {
 
 const block = {
     position: "absolute",
-    top: "0px",
-    left: "0px",
-    marginLeft: "3%",
-    marginTop: "1%"
+    top: "1px",
+    left: "3px",
 }
 export default Level2;
