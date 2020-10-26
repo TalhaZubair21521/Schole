@@ -21,20 +21,19 @@ import CardImage from "../../../../../assets/countingLevelsImages/lolipops/bg.pn
 const Level3 = (props) => {
     const history = useHistory();
     const data = [
-        { id: 0, src: L1, value: 10 },
-        { id: 1, src: L2, value: 20 },
-        { id: 2, src: L3, value: 30 },
-        { id: 3, src: L4, value: 40 },
-        { id: 4, src: L5, value: 50 },
-        { id: 5, src: L6, value: 60 },
-        { id: 6, src: L7, value: 70 },
+        { id: 0, src: L3, value: 30 },
+        { id: 1, src: L5, value: 50 },
+        { id: 2, src: L1, value: 10 },
+        { id: 3, src: L10, value: 100 },
+        { id: 4, src: L4, value: 40 },
+        { id: 5, src: L9, value: 90 },
+        { id: 6, src: L6, value: 60 },
         { id: 7, src: L8, value: 80 },
-        { id: 8, src: L9, value: 90 },
-        { id: 9, src: L10, value: 100 },
+        { id: 8, src: L7, value: 70 },
+        { id: 9, src: L2, value: 20 },
     ]
     const [images, setImages] = useState(data);
     const [count, setCount] = useState(0);
-
 
     const Submit = () => {
         const numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
@@ -126,7 +125,7 @@ const Level3 = (props) => {
                     </div>
                 </div>
                 <div style={block}>
-                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/shapes/level1')}>Cancel</button><br />
+                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/shapes/level1')}>Don't know</button><br />
                     <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
                     <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={Submit}>Submit</button>
                 </div>
@@ -166,7 +165,7 @@ const btn = {
     border: "2px solid",
     backgroundColor: "#f7f0ee",
     padding: "7% 7%",
-    width: "200%",
+    width: "120%",
     fontSize: "1.3rem",
     marginTop: "2%"
 }
