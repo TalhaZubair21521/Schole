@@ -137,7 +137,7 @@ const Level2 = (props) => {
                     </div>
 
                     <div style={block}>
-                        <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/statistics')}>Cancel</button><br />
+                        <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/shapes/level3')}>Don't Know</button><br />
                         <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
                         <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => alert('Complete the game first')}>Submit</button>
                     </div>
@@ -193,7 +193,7 @@ const btn = {
     border: "2px solid",
     backgroundColor: "#f7f0ee",
     padding: "7% 7%",
-    width: "200%",
+    width: "125%",
     fontSize: "1.3rem",
     marginTop: "2%"
 }

@@ -4,7 +4,7 @@ import CountingLevel1 from "../../../../../assets/bgs/countingBg.png";
 import Card from "../../../../../assets/countingLevelsImages/dropBallonCard.png";
 import EmptyBox from "../../../../../assets/countingLevelsImages/emptyBox.png";
 import FilledBox from "../../../../../assets/countingLevelsImages/filledBox.png";
-import Submit from "../../../../../assets/countingLevelsImages/submit.png";
+// import Submit from "../../../../../assets/countingLevelsImages/submit.png";
 
 import Ballon1 from "../../../../../assets/countingLevelsImages/b1.png";
 import Ballon2 from "../../../../../assets/countingLevelsImages/b2.png";
@@ -203,7 +203,7 @@ const Level1 = (props) => {
                     </div>
                 </div>
                 <div style={block}>
-                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/counting/level2')}>Cancel</button><br />
+                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/counting/level2')}>Don't Know</button><br />
                     <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
                     <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={evaluateResult}>Submit</button>
                 </div>
@@ -239,7 +239,7 @@ const btn = {
     border: "2px solid",
     backgroundColor: "#f7f0ee",
     padding: "7% 7%",
-    width: "200%",
+    width: "125%",
     fontSize: "1.3rem",
     marginTop: "2%"
 }
