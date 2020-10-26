@@ -63,9 +63,9 @@ const Level3 = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-3" style={{ marginTop: "13%" }}>
-                        <img src={Dialogue} height="20%" width="auto" alt="lion" />
-                        <img src={Lion} height="20%" width="auto" alt="lion" />
+                    <div className="col-3" style={{ marginTop: "10%" }}>
+                        <img src={Dialogue} height="13%" width="auto" alt="lion" />
+                        <img src={Lion} height="15%" width="auto" alt="lion" />
                     </div>
                     <div className="col-5">
                         <div style={CenterContent}>
@@ -77,7 +77,7 @@ const Level3 = (props) => {
                                     <h1 id="4" onClick={shapesHandle}>{shapesList[count].option}</h1>
                                 </div>
                                 <div style={block}>
-                                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/ordering/level1')}>Cancel</button><br />
+                                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/ordering/level1')}>Don't Know</button><br />
                                     <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
                                     <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => alert('Complete the game first')}>Submit</button>
                                 </div>
@@ -127,7 +127,7 @@ const btn = {
     border: "2px solid",
     backgroundColor: "#f7f0ee",
     padding: "7% 7%",
-    width: "200%",
+    width: "125%",
     fontSize: "1.3rem",
     marginTop: "3%"
 }
@@ -138,7 +138,7 @@ const block = {
     position: "absolute",
     top: "1%",
     right: "1%",
-    marginRight: "20%",
+    marginRight: "10%",
     marginTop: "2%"
 }
 
