@@ -126,7 +126,7 @@ const Level3 = (props) => {
                     </div>
                 </div>
                 <div style={block}>
-                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/shapes/level1')}>Cancel</button><br />
+                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/shapes/level1')}>Don't Know</button><br />
                     <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
                     <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={Submit}>Submit</button>
                 </div>
@@ -166,17 +166,15 @@ const btn = {
     border: "2px solid",
     backgroundColor: "#f7f0ee",
     padding: "7% 7%",
-    width: "200%",
+    width: "125%",
     fontSize: "1.3rem",
     marginTop: "2%"
 }
 
 const block = {
     position: "absolute",
-    top: "0px",
-    left: "0px",
-    marginLeft: "3%",
-    marginTop: "1%"
+    top: "1px",
+    left: "3px",
 }
 
 export default Level3;

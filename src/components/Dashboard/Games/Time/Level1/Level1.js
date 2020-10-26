@@ -6,7 +6,18 @@ import AdditionLevel1 from "../../../../../assets/bgs/timeBg1.png";
 const Level1 = (props) => {
     let history = useHistory();
     
-    // const [field, setField] = useState('');
+const handleChange = (v) => {
+        alert(v);
+        if(v === 3){
+            alert('You Choose Correct');
+        }
+        else {
+            alert('You Choose Wrong');
+        }
+
+        alert("Next Level");
+        history.push('/dashboard/games/time/level2');
+    }
 
     return (
         <div>
@@ -15,18 +26,18 @@ const Level1 = (props) => {
                 <div className="row" >
                     <div className="col-6" style={{ marginTop: "10%" }}>
                         <div style={CenterContent}>
-                            <div className="container">
-                                <div className="row">
-                                            <div style={{backgroundColor:"#FFFFFF",border:"3px solid orange",borderRadius: "10px",padding:"2% 5%",textAlign:"center"}}>
+                            <div className="container" style={{marginLeft:"15%"}}>
+                                <div className="row" style={{marginBottom:"2%"}}>
+                                            <div  onClick={()=>handleChange(3)} style={{backgroundColor:"#FFFFFF",border:"3px solid orange",borderRadius: "10px",padding:"2% 5%",textAlign:"center"}}>
                                                 <h1>3'o' Clock</h1>
                                             </div>
                                 </div>
                                 <div className="row">
-                                        <div style={{backgroundColor:"#FFFFFF",border:"3px solid orange",borderRadius: "10px",padding:"2% 5%",textAlign:"center"}}>
-                                            <h1>5'o' Clock</h1>
+                                        <div onClick={()=>handleChange(12)} style={{backgroundColor:"#FFFFFF",border:"3px solid orange",borderRadius: "10px",padding:"2% 5%",textAlign:"center"}}>
+                                            <h1>12'o' Clock</h1>
                                         </div>
-                                        <div style={{backgroundColor:"#FFFFFF",border:"3px solid orange",borderRadius: "10px",padding:"2% 5%",textAlign:"center"}}>
-                                            <h1>7'o' Clock</h1>
+                                        <div onClick={()=>handleChange(6)} style={{backgroundColor:"#FFFFFF",border:"3px solid orange",borderRadius: "10px",padding:"2% 5%",textAlign:"center",marginLeft:"2%"}}>
+                                            <h1>6'o' Clock</h1>
                                         </div>
                                 </div>
                             </div>
@@ -37,9 +48,9 @@ const Level1 = (props) => {
                     </div>
                 </div>
                 <div style={block}>
-                                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/subtraction/level2')}>Don't Know</button><br />
+                                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/time/level2')}>Don't Know</button><br />
                                     <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
-                                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => history.push('/dashboard/games/subtraction/level2')}>Submit</button>
+                                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => history.push('/dashboard/games/time/level2')}>Submit</button>
                         </div>
             </div>
         </div>
@@ -67,7 +78,7 @@ const btn = {
     border: "2px solid",
     backgroundColor: "#f7f0ee",
     padding: "7% 7%",
-    width: "150%",
+    width: "125%",
     fontSize: "1.3rem",
     marginTop: "3%"
 }
@@ -76,9 +87,7 @@ const btn = {
 const block = {
     position: "absolute",
     bottom: "15%",
-    right: "0%",
-    marginRight: "6%",
-    marginTop: "1%"
+    right: "3%"
 }
 
 export default Level1;

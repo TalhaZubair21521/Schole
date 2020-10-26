@@ -192,7 +192,7 @@ const Level2 = () => {
                     </div>
                 </div>
                 <div style={block}>
-                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/shapes/level1')}>Don't Know</button><br />
+                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/counting/level3')}>Don't Know</button><br />
                     <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
                     <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => alert('Complete the game first')}>Submit</button>
                 </div>
@@ -253,9 +253,7 @@ const btn = {
 
 const block = {
     position: "absolute",
-    top: "0px",
-    left: "0px",
-    marginLeft: "3%",
-    marginTop: "1%"
+    top: "1px",
+    left: "3px",
 }
 export default Level2;

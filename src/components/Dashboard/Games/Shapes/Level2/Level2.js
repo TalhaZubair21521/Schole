@@ -47,7 +47,7 @@ const Level2 = (props) => {
 
         if (count + 1 === 4) {
             alert("Next Level");
-            history.push('/dashboard/games/statistics');
+            history.push('/dashboard/games/shapes/level3');
 
         }
     };
@@ -99,30 +99,30 @@ const Level2 = (props) => {
                     </div>
 
                     <div className="col-2" style={{ marginTop: "17%" }}>
-                        <img src={Dialogue} height="7%" width="auto" alt="lion" />
+                        <img src={Dialogue} height="10%" width="auto" alt="lion" />
                         <img src={Lion} height="15%" width="auto" alt="lion" />
                     </div>
 
                     <div className="col-5">
                         <div style={CenterContent}>
                             <div style={BackgroundImageSetter}>
-                                <div className="row" style={{ marginTop: "12%", marginLeft: "10%" }}>
+                                <div className="row" style={{ marginTop: "10%", marginLeft: "10%" }}>
                                     <div className="col-6"  >
-                                        <img src={Dice} height="50%" width="auto" alt="box" id="0" onClick={shapesHandle}
+                                        <img src={Dice} height="55%" width="auto" alt="box" id="0" onClick={shapesHandle}
                                             onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff} />
                                     </div>
                                     <div className="col-6" style={{ marginTop: "-4%" }}>
-                                        <img src={Football} height="60%" width="auto" alt="box" id="1" onClick={shapesHandle}
+                                        <img src={Football} height="55%" width="auto" alt="box" id="1" onClick={shapesHandle}
                                             onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff} />
                                     </div>
                                 </div>
                                 <div className="row" style={{ marginTop: "20%", marginLeft: "10%" }}>
                                     <div className="col-6">
-                                        <img src={Box} height="50%" width="auto" alt="box" id="2" onClick={shapesHandle}
+                                        <img src={Box} height="55%" width="auto" alt="box" id="2" onClick={shapesHandle}
                                             onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff} />
                                     </div>
                                     <div className="col-6">
-                                        <img src={Sandwich} height="50%" width="auto" alt="box" id="3" onClick={shapesHandle}
+                                        <img src={Sandwich} height="55%" width="auto" alt="box" id="3" onClick={shapesHandle}
                                             onMouseEnter={ImageHover} onMouseLeave={ImageHoverOff} />
                                     </div>
                                 </div>
@@ -204,8 +204,7 @@ const block = {
     position: "absolute",
     bottom: "15%",
     left: "0px",
-    marginLeft: "3%",
-    marginTop: "1%"
+    marginLeft: "1%",
 }
 
 export default Level2;
