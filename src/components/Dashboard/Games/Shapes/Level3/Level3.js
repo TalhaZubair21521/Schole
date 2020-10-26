@@ -69,12 +69,12 @@ const Level3 = (props) => {
                     </div>
                     <div className="col-5">
                         <div style={CenterContent}>
-                            <div className="container" style={{ marginLeft: "30%" }}>
+                            <div className="container" style={{ marginLeft: "7%",marginTop:"4%" }}>
                                 <div className="row">
-                                    <h1 id={shapesList[count].id} onClick={shapesHandle}>{shapesList[count].name}</h1>
+                                    <h1 id={shapesList[count].id} onClick={shapesHandle} style={{textShadow:"2px 2px 4px red",fontSize:"5rem"}}>{shapesList[count].name}</h1>
                                 </div>
                                 <div className="row">
-                                    <h1 id="4" onClick={shapesHandle}>{shapesList[count].option}</h1>
+                                    <h1 id="4" onClick={shapesHandle} style={{textShadow:"2px 2px 4px green",fontSize:"5rem"}}>{shapesList[count].option}</h1>
                                 </div>
                                 <div style={block}>
                                     <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/ordering/level1')}>Don't Know</button><br />
