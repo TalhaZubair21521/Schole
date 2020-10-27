@@ -13,7 +13,7 @@ const Homepage = () => {
                     <label style={Title}><label style={{ color: "#CD326C" }}> New </label>{" "}<label style={{ color: "purple" }}>Test Series    </label></label>
                     <p style={Paragraph}>Series of test series with new</p>
                     <p style={Paragraph}>and exciting levels for kids learning</p>
-                    <Link to="/dashboard/games/counting/level1">
+                    <Link to="/dashboard/games/numbers/level2">
                         <button style={FreeTrial}>FreeTrial</button>
                     </Link>
                     <button style={PaidPlan}>Paid Plan</button>
