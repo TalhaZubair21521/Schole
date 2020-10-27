@@ -1,18 +1,15 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import "./LoginCard.css";
 
 import Logo from "../../../assets/logo.png";
-import FacebookButton from "./FacebookButton/FacebookButton";
-import GoogleButton from "./GoogleButton//GoogleButton";
-
+import "./SignupCard.css";
 import { Link } from "react-router-dom";
-import Background from "../../../assets/bg1.png"
 // import Navbar from "../Navbar/Navbar";
+import Background from "../../../assets/bg1.png"
 
-const LoginCard = () => {
+const SignupCard = () => {
     return (
-        <div style={mainDivHomepage}>
+    <div style={mainDivHomepage}>
         {/* <Navbar /> */}
         <div className="row">
             <div className="col-5">
@@ -24,24 +21,40 @@ const LoginCard = () => {
                             </div>
                             <div className="col-6">
                                 <div style={RightElementsStyling}>
-                                    <Link to="/signup">
-                                            Signup
-                                    </Link>
+                                <Link to="/signin">
+                                        Signin
+                                </Link>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="SigninSection">
-                        <label style={{ fontSize: "2rem", color: "white", marginTop: "20px", marginBottom: "20px" }}><b>Sign in</b></label>
-                        <div className="row">
-                            <div className="col-6">
-                                <FacebookButton />
-                            </div>
-                            <div className="col-6">
-                                <GoogleButton />
-                            </div>
-                        </div>
+                        <label style={{ fontSize: "2rem", color: "white", marginTop: "20px", marginBottom: "20px" }}><b>Sign Up</b></label>
+                        
                         <form style={{ marginTop: "20px", marginBottom: "20px" }}>
+                            <div className="row">
+                                <div  className="col-6" style={LabelStyling}>Child's Name</div>
+                                <div className="col-4" style={LabelStyling}>Age</div>
+                                
+                            </div>
+
+                            <div className="row">
+                                <div className="col-6">
+                                    <input className="collogingInputs" style={InputFieldStyle}></input>
+                                </div>
+                                
+                                <div className="col-6">
+                                    <input className="logingInputs" style={InputFieldStyle}></input>
+                                </div>
+
+                            </div>
+                            
+                            
+                            <div style={LabelStyling}><div>Parent Contact</div></div>
+                            <div>
+                                <input className="logingInputs" style={InputFieldStyle}></input>
+                            </div>
                             <div style={LabelStyling}><div>Username / Email</div></div>
                             <div>
                                 <input className="logingInputs" style={InputFieldStyle}></input>
@@ -50,15 +63,9 @@ const LoginCard = () => {
                             <div>
                                 <input className="logingInputs" style={InputFieldStyle}></input>
                             </div>
-                            <div style={RightElementsStyling}>
-                                Forget Password?
-                            </div>
-                            <div style={CenteredElementsStyling}>
-                                Invalid Email or Password
-                            </div>
                             <div>
-                                <Link to="/dashboard/">
-                                    <button className="removeFocus" style={{ marginTop: "20px", textDeocration: "none", border: "none", color: "white", backgroundColor: "#CD326C", padding: "1% 9%", borderRadius: "5px" }}>Sign in</button>
+                                <Link to="/signin">
+                                    <button className="removeFocus" style={{ marginTop: "20px", textDeocration: "none", border: "none", color: "white", backgroundColor: "#CD326C", padding: "1% 9%", borderRadius: "5px" }}>Sign Up</button>
                                 </Link>
                             </div>
                         </form>
@@ -67,7 +74,7 @@ const LoginCard = () => {
             </div>
             <div className="col-7" />
         </div >
-        </div>
+    </div>
     );
 }
 
@@ -84,7 +91,7 @@ const BackgroundStyle = {
     backgroundColor: "rgba(40, 40, 40, 0.9)",
     margin: "auto",
     width: "65%",
-    marginTop: "100px",
+    marginTop: "50px",
     minWidth: "300px",
     marginLeft: "100px"
 }
@@ -95,12 +102,12 @@ const RightElementsStyling = {
     textAlign: "right",
     marginTop: "5px"
 }
-const CenteredElementsStyling = {
-    color: "red",
-    fontSize: "0.8rem",
-    textAlign: "center",
-    fontWeight: "bold"
-}
+// const CenteredElementsStyling = {
+//     color: "red",
+//     fontSize: "0.8rem",
+//     textAlign: "center",
+//     fontWeight: "bold"
+// }
 const LabelStyling = {
     color: "white",
     fontSize: "0.7rem",
@@ -117,4 +124,4 @@ const InputFieldStyle = {
     border: "none"
 }
 
-export default LoginCard;
+export default SignupCard;

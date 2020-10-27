@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
 
-    const [counter, setCounter] = useState(60);
+    const [counter, setCounter] = useState(180);
 
     useEffect(() => {
         if(counter===0){

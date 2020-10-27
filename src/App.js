@@ -8,11 +8,17 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Error401 from "./components/Errors/401Error";
 import Error404 from "./components/Errors/404Error";
 import Error500 from "./components/Errors/500Error";
+import LoginCard from './components/Homepage/LoginCard/LoginCard';
+import SignupCard from './components/Homepage/SignupCard/SignupCard';
+
 
 function App() {
   return (
     <div className="FontToUse">
       <Switch>
+
+        <Route path="/signin" ><LoginCard /></Route>
+        <Route path="/signup" ><SignupCard /></Route>
         <Route path="/dashboard" ><Dashboard /></Route>
         <Route exact path="/Not-Authorized" ><Error401 /></Route>
         <Route exact path="/Server-Not-Responding" ><Error500 /></Route>
