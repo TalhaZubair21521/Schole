@@ -21,6 +21,7 @@ import Test from "../../../../../assets/sound/test.mp3"
 
 const Level1 = (props) => {
     let history = useHistory();
+    let points = 0;
     const ballons = [{ number: 10, src: Ballon1 }, { number: 8, src: Ballon2 }, { number: 6, src: Ballon3 }, { number: 4, src: Ballon4 }, { number: 2, src: Ballon5 }]
     const [ballonImages, setballonImages] = useState(ballons);
     const cards = [{ id: 1, type: "empty", src: "", number: 0 }, { id: 2, type: "empty", src: "", number: 0 }, { id: 3, type: "empty", src: "", number: 0 }, { id: 4, type: "empty", src: "", number: 0 }, { id: 5, type: "empty", src: "", number: 0 }]
@@ -50,10 +51,11 @@ const Level1 = (props) => {
                 }
             }
             if (ordered) {
-                // alert("Right Order");
+                points= 2;
+                alert(points);
                 history.push("/dashboard/games/counting/level2");
             } else {
-                // alert("Wrong Order");
+                alert(points);
                 history.push("/dashboard/games/counting/level2");
             }
         }

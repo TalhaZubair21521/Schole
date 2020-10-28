@@ -20,6 +20,8 @@ import CardImage from "../../../../../assets/countingLevelsImages/lolipops/bg.pn
 
 const Level3 = (props) => {
     const history = useHistory();
+    let points = 0;
+
     const data = [
         { id: 0, src: L3, value: 30 },
         { id: 1, src: L5, value: 50 },
@@ -45,10 +47,12 @@ const Level3 = (props) => {
             }
         }
         if (flag) {
+            points= 4;
             console.log("Correct");
         } else {
             console.log("Not Correct");
         }
+        alert(points);
         history.push("/dashboard/games/shapes/level1");
     }
 

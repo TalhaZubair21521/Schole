@@ -7,7 +7,124 @@ Chart.defaults.global.defaultFontColor = 'black';
 Chart.defaults.global.defaultFontSize = 14;
 Chart.defaults.global.title.fontSize = 16;
 const Statistics = (props) => {
+    
+    const rulesData=[
+        {questionNo:1,category:"l",low:1,high:2,percentage:5},
+        {questionNo:1,category:"l",low:3,high:5,percentage:10},
+        {questionNo:1,category:"l",low:6,high:7,percentage:15},
+        {questionNo:1,category:"l",low:8,high:9,percentage:0},
+        {questionNo:1,category:"m",low:1,high:2,percentage:5},
+        {questionNo:1,category:"m",low:3,high:5,percentage:10},
+        {questionNo:1,category:"m",low:6,high:7,percentage:15},
+        {questionNo:1,category:"m",low:8,high:9,percentage:0},
 
+        {questionNo:2,category:"l",low:1,high:2,percentage:5},
+        {questionNo:2,category:"l",low:3,high:5,percentage:10},
+        {questionNo:2,category:"l",low:6,high:7,percentage:15},
+        {questionNo:2,category:"l",low:8,high:9,percentage:20},
+        {questionNo:2,category:"m",low:1,high:2,percentage:5},
+        {questionNo:2,category:"m",low:3,high:5,percentage:10},
+        {questionNo:2,category:"m",low:6,high:7,percentage:15},
+        {questionNo:2,category:"m",low:8,high:9,percentage:20},
+
+        {questionNo:3,category:"s",low:1,high:2,percentage:10},
+        {questionNo:3,category:"s",low:3,high:5,percentage:20},
+        {questionNo:3,category:"s",low:6,high:7,percentage:30},
+        {questionNo:3,category:"s",low:8,high:9,percentage:40},
+
+        {questionNo:4,category:"v",low:1,high:2,percentage:5},
+        {questionNo:4,category:"v",low:3,high:5,percentage:10},
+        {questionNo:4,category:"v",low:6,high:7,percentage:15},
+        {questionNo:4,category:"v",low:8,high:9,percentage:20},
+        {questionNo:4,category:"l",low:1,high:2,percentage:5},
+        {questionNo:4,category:"l",low:3,high:5,percentage:10},
+        {questionNo:4,category:"l",low:6,high:7,percentage:15},
+        {questionNo:4,category:"l",low:8,high:9,percentage:20},
+
+        {questionNo:5,category:"m",low:1,high:2,percentage:5},
+        {questionNo:5,category:"m",low:3,high:5,percentage:10},
+        {questionNo:5,category:"m",low:6,high:7,percentage:15},
+        {questionNo:5,category:"m",low:8,high:9,percentage:20},
+
+        {questionNo:6,category:"m",low:1,high:2,percentage:5},
+        {questionNo:6,category:"m",low:3,high:5,percentage:10},
+        {questionNo:6,category:"m",low:6,high:7,percentage:15},
+        {questionNo:6,category:"m",low:8,high:9,percentage:20},
+
+        {questionNo:7,category:"v",low:1,high:2,percentage:10},
+        {questionNo:7,category:"v",low:3,high:5,percentage:15},
+        {questionNo:7,category:"v",low:6,high:7,percentage:20},
+        {questionNo:7,category:"v",low:8,high:9,percentage:30},
+        {questionNo:7,category:"e",low:1,high:2,percentage:10},
+        {questionNo:7,category:"e",low:3,high:5,percentage:15},
+        {questionNo:7,category:"e",low:6,high:7,percentage:20},
+        {questionNo:7,category:"e",low:8,high:9,percentage:30},
+
+        {questionNo:8,category:"v",low:1,high:2,percentage:10},
+        {questionNo:8,category:"v",low:3,high:5,percentage:20},
+        {questionNo:8,category:"v",low:6,high:7,percentage:30},
+        {questionNo:8,category:"v",low:8,high:9,percentage:40},
+
+        {questionNo:9,category:"l",low:1,high:2,percentage:10},
+        {questionNo:9,category:"l",low:3,high:5,percentage:15},
+        {questionNo:9,category:"l",low:6,high:7,percentage:20},
+        {questionNo:9,category:"l",low:8,high:9,percentage:30},
+        {questionNo:9,category:"s",low:1,high:2,percentage:10},
+        {questionNo:9,category:"s",low:3,high:5,percentage:15},
+        {questionNo:9,category:"s",low:6,high:7,percentage:20},
+        {questionNo:9,category:"s",low:8,high:9,percentage:30}
+    ]
+
+    const [rules]=useState(rulesData);
+
+    // let list = [];
+    // let maxPercentage = [85,75,70,90,30];
+
+    const [db] = useState([4,6,4,3,3,2,6,6,3])
+    // const [db] = useState([4,6])
+
+    let l =0;
+    let m =0;
+    // let s =0;
+    // let v =0;
+    // let e =0;
+
+    db.map((value, index) => {
+        // console.log(value,index);
+        rules.filter((rule) => {
+            if((value>rule.low && value<rule.high) && rule.questionNo===(index+1) && rule.category==="l"){
+                console.log("here");
+                l=l + rule.percentage;
+                return rule.percentage;
+            }
+            if((value>rule.low && value<rule.high) && rule.questionNo===(index+1) && rule.category==="m"){
+
+                m=m + rule.percentage;
+                return rule.percentage;
+            }
+            return null;
+         } );
+
+        return null;
+
+    });
+
+    console.log(l,m);
+
+//    const g=rules.filter((rule) => {
+//        if((4>rule.low && 4<rule.high) && rule.questionNo===1 && rule.category==="l"){
+//            alert("Percentage " + rule.percentage);
+//            return rule.percentage;
+//        }
+//        return null;
+//     } );
+
+//     console.log(g);
+
+
+
+
+    
     const [overall] = useState({ label: "Overall Progress", color: "#136A8A", percentage: "70%" })
     const [stats] = useState([
         { label: "Logic", color: "linear-gradient(#C84E89,#F15F79)", percentage: "70%" },
@@ -60,6 +177,8 @@ const Statistics = (props) => {
             }
         }
     })
+
+
     return (
         <div style={mainDivHomepage}>
             <Navbar />
