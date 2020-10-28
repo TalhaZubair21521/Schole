@@ -26,6 +26,8 @@ import Dialogue from "../../../../../assets/shapesLevelsImages/Level2/dialogue.p
 const Level2 = (props) => {
 
     let history = useHistory();
+    let points = 0;
+    const [mistake, setMistake] = useState(0);
 
     const shapes = [{ id: "0", name: "Cube" }, { id: "1", name: "football" }, { id: "2", name: "box" }, { id: "3", name: "sandwich" }]
     const [shapesList] = useState(shapes);
@@ -36,17 +38,18 @@ const Level2 = (props) => {
     const shapesHandle = (event) => {
         play();
 
-        if (shapesList[count].id === event.target.id) {
+        if(shapesList[count].id !== event.target.id ){
+            setMistake(mistake+1);
+        }
 
-            alert('You Choose Correct');
-        }
-        else {
-            alert('You Choose Wrong');
-        }
         setCount(count + 1);
 
-        if (count + 1 === 4) {
-            alert("Next Level");
+        if (count+1 === 4) {
+            alert("Mistake: " + (mistake+1));
+            if((mistake+1)<3){
+                    points=3;
+                }
+            alert("Points: " + points);
             history.push('/dashboard/games/shapes/level3');
 
         }

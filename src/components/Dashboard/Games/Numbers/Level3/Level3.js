@@ -6,6 +6,7 @@ import Lion from "../../../../../assets/shapesLevelsImages/Level2/lion.png";
 
 const Level3 = (props) => {
     let history = useHistory();
+    let points = 0;
     let list = [];
 
     for (let i = 0; i < 49; i++) {
@@ -17,14 +18,35 @@ const Level3 = (props) => {
         // alert(list[event.target.id].selected);
         if (event.target.style.borderColor === "orange"){
             event.target.style.borderColor = "#217C58"
-            list[event.target.id].selected = false;
+            list[event.target.id].selected = true;
         }
         else {
             event.target.style.borderColor = "orange"
-            list[event.target.id].selected = true;
+            list[event.target.id].selected = false;
         }
 
     };
+
+    const CalculateResult = () => {
+        let mistake = 0;
+        list.map( (item) => {
+                if((item.selected === true && (item.num%2===0)) || (item.selected === false && (item.num%2!==0))){
+                    mistake=mistake+1;
+                }
+
+                return null;
+            
+            });
+
+        alert("Mistake: " +mistake);
+        if(mistake<3){
+            points=4;
+        }
+        alert("Points: " + points);
+        history.push('/dashboard/games/counting/level1')
+
+    };
+
 
     return (
         <div>
@@ -34,7 +56,7 @@ const Level3 = (props) => {
             <div className="row">
                         {(list.slice(0, 9)).map((value, index) => {
                             
-                            return  <div className="col-1" id={index} classkey={index} onClick={Background} 
+                            return  <div className="col-1" id={value.num-1} classkey={value.num} onClick={Background} 
                                         style={{fontSize:"2.5rem",textAlign:"center", border:"7px solid",borderColor:"orange", borderRadius: "100%",margin:"0.2%"}}>{value.num}</div>
                         
                         })}
@@ -42,7 +64,7 @@ const Level3 = (props) => {
             <div className="row">
                         {(list.slice(10, 19)).map((value, index) => {
                             
-                            return  <div className="col-1" id={index} classkey={index} onClick={Background} 
+                            return  <div className="col-1" id={value.num-1} classkey={value.num} onClick={Background} 
                                         style={{fontSize:"2.5rem",textAlign:"center", border:"7px solid",borderColor:"orange", borderRadius: "100%",margin:"0.2%"}}>{value.num}</div>
                         
                         })}
@@ -50,7 +72,7 @@ const Level3 = (props) => {
             <div className="row">
                         {(list.slice(20, 29)).map((value, index) => {
                             
-                            return  <div className="col-1" id={index} classkey={index} onClick={Background} 
+                            return  <div className="col-1" id={value.num-1} classkey={value.num} onClick={Background} 
                                         style={{fontSize:"2.5rem",textAlign:"center", border:"7px solid",borderColor:"orange", borderRadius: "100%",margin:"0.2%"}}>{value.num}</div>
                         
                         })}
@@ -58,7 +80,7 @@ const Level3 = (props) => {
             <div className="row">
                         {(list.slice(30, 39)).map((value, index) => {
                             
-                            return  <div className="col-1" id={index} classkey={index} onClick={Background} 
+                            return  <div className="col-1" id={value.num-1} classkey={value.num} onClick={Background} 
                                         style={{fontSize:"2.5rem",textAlign:"center", border:"7px solid",borderColor:"orange", borderRadius: "100%",margin:"0.2%"}}>{value.num}</div>
                         
                         })}
@@ -66,7 +88,7 @@ const Level3 = (props) => {
             <div className="row">
                         {(list.slice(40, 49)).map((value, index) => {
                             
-                            return  <div className="col-1" id={index} classkey={index} onClick={Background} 
+                            return  <div className="col-1" id={value.num-1} classkey={value.num} onClick={Background} 
                                         style={{fontSize:"2.5rem",textAlign:"center", border:"7px solid",borderColor:"orange", borderRadius: "100%",margin:"0.2%"}}>{value.num}</div>
                         
                         })}
@@ -88,7 +110,7 @@ const Level3 = (props) => {
                 <div style={block}>
                                     <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/counting/level1')}>Don't Know</button><br />
                                     <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
-                                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => history.push('/dashboard/games/counting/level1')}>Submit</button>
+                                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={CalculateResult}>Submit</button>
                         </div>
             </div>
         </div>

@@ -25,7 +25,8 @@ import Test from "../../../../../assets/sound/test.mp3"
 const Level2 = () => {
 
     let history = useHistory();
-
+    let points = 0;
+    
     const nums = [25, 10, 50, 40, 5, 20, 15, 35, 30, 45];
     const [numbers] = useState(nums);
 
@@ -49,7 +50,8 @@ const Level2 = () => {
                     ballon.src = null
                     setSelected(selected + 1);
                     if (selected === 9) {
-                        // alert("Next Game");
+                        points= 3;
+                        alert(points);
                         history.push("/dashboard/games/counting/level3");
                     }
                     return ballon;
