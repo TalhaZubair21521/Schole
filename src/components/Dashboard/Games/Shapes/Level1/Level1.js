@@ -16,10 +16,13 @@ import Arrow from "../../../../../assets/shapesLevelsImages/arrow.png"
 
 const Level1 = (props) => {
     let history = useHistory();
-    
+    let points = 0;
+    const [mistake, setMistake] = useState(0);
+
     const shapes = [{ id:"0",name:"Triangle", text: "I have three sides and are sharp.What am I?" }, { id:"1",name:"Square", text: "I have four sides and are equal.What am I?" }, { id:"2",name:"Rectangle", text: "I have two long sides and two short sides.What am I?" }, { id:"3",name:"Circle", text: "I have no sides, same from everywhere.What am I?" }]
     const [shapesList] = useState(shapes);
     const [count, setCount] = useState(0);
+    
     // const [design, setDesign] = useState(false);
 
     const [play] = useSound(Test,{ volume: 0.25 });
@@ -27,18 +30,19 @@ const Level1 = (props) => {
     const shapesHandle = (event) => {
         play();
 
-        if(shapesList[count].id === event.target.id ){
-            alert('You Choose Correct');
-        }
-        else {
-            alert('You Choose Wrong');
+        if(shapesList[count].id !== event.target.id ){
+            setMistake(mistake+1);
         }
 
         setCount(count+1);
 
             if (count+1 === 4){
-            alert("Next Level");
-            history.push('/dashboard/games/shapes/level2');
+                alert("Mistake: " + (mistake+1));
+                if((mistake+1)<3){
+                    points=2;
+                }
+                alert("Points: " + points);
+                history.push('/dashboard/games/shapes/level2');
 
         }
         
