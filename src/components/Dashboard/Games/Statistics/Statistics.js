@@ -19,11 +19,20 @@ const Statistics = (props) => {
       .then((res) => {
         if (res.data.type === "success") {
           console.log(res.data.result);
+          let overall = parseInt(
+            ((res.data.result[0] +
+              res.data.result[1] +
+              res.data.result[2] +
+              res.data.result[3] +
+              res.data.result[4]) /
+              500) *
+              100
+          );
 
           setOverall({
             label: "Overall Progress",
             color: "#136A8A",
-            percentage: "70%",
+            percentage: overall + "%",
           });
 
           setStats([

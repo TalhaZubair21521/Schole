@@ -59,6 +59,7 @@ exports.Signin = async (req, res) => {
         Founduser.password
       );
       if (isEqual) {
+        console.log("s");
         res.status(200).json({
           type: "success",
           result: "User Logged In Successfully",

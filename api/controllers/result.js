@@ -95,7 +95,7 @@ exports.Add = async (req, res) => {
 
 exports.Statistics = async (req, res) => {
   try {
-    const result = await Result.findOne({ user: "5f9a66736a8f8621a464a891" });
+    const result = await Result.findOne({ user: "5f9cf57addfdda374802028d" });
 
     // const list = [4, 4, 7, 5, 3, 2, 6, 6, 3];
     const list = [
@@ -111,7 +111,7 @@ exports.Statistics = async (req, res) => {
     ];
 
     const percentageList = Statistics.CalculateStatistics(list);
-    console.log(percentageList);
+    // console.log(percentageList);
 
     res.status(200).json({ type: "success", result: percentageList });
   } catch (error) {
