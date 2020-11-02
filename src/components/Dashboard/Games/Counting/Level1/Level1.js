@@ -70,7 +70,7 @@ const Level1 = (props) => {
       }
 
       addResult({
-        user: "5f9cf57addfdda374802028d",
+        user: localStorage.getItem("userId"),
         status: "G2L1",
         game: "game2",
         points: points,
@@ -295,7 +295,7 @@ const Level1 = (props) => {
             style={{ ...btn, color: "orange", borderColor: "orange" }}
             onClick={() => history.push("/dashboard/games/counting/level2")}
           >
-            Don't Know
+            I Don't Know
           </button>
           <br />
           <button

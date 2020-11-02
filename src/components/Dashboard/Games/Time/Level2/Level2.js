@@ -7,19 +7,37 @@ const Level2 = (props) => {
     let history = useHistory();
 
     return (
-        <div>
-            <Navbar seriesNumber={"7"} seriesLevel={"2"} seriesName={"Time"} />
-            <div style={mainDivHomepage}>
-            <div style={CenterContent}>
-                
-            </div>
-                <div style={block}>
-                                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/time/level2')}>Don't Know</button><br />
-                                    <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
-                                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => history.push('/dashboard/games/time/level2')}>Submit</button>
-                        </div>
-            </div>
+      <div>
+        <Navbar seriesNumber={"7"} seriesLevel={"2"} seriesName={"Time"} />
+        <div style={mainDivHomepage}>
+          <div style={CenterContent}></div>
+          <div style={block}>
+            <button
+              type="button"
+              style={{ ...btn, color: "orange", borderColor: "orange" }}
+              onClick={() => history.push("/dashboard/games/time/level2")}
+            >
+              I Don't Know
+            </button>
+            <br />
+            <button
+              type="button"
+              style={{ ...btn, color: "red", borderColor: "red" }}
+              onClick={() => window.location.reload(false)}
+            >
+              Clear
+            </button>
+            <br />
+            <button
+              type="button"
+              style={{ ...btn, color: "green", borderColor: "green" }}
+              onClick={() => history.push("/dashboard/games/time/level2")}
+            >
+              Submit
+            </button>
+          </div>
         </div>
+      </div>
     );
 }
 

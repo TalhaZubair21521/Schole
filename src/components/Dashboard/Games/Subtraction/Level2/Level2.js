@@ -9,38 +9,93 @@ const Level2 = (props) => {
     const [field, setField] = useState('');
 
     return (
-        <div>
-            <Navbar seriesNumber={"5"} seriesLevel={"2"} seriesName={"Addition"} />
-            <div style={mainDivHomepage}>
-                <div className="row" >
-                    <div className="col-6" style={{ marginTop: "-3%" }}>
-                        <div style={CenterContent}>
-                            <div style={{backgroundColor:"#FFFFFF",border:"3px solid red",borderRadius: "5px",padding:"2% 5%",textAlign:"center"}}>
-                                <h1>8</h1>
-                            </div>
-                            <div style={{marginLeft:"2%",marginRight:"2%"}}>
-                                <h1>-</h1>
-                            </div>
-                            <div style={{backgroundColor:"#FFFFFF",border:"3px solid red",borderRadius: "5px",padding:"2% 5%",textAlign:"center"}}>
-                                <h1>5</h1>
-                            </div>
-                            <div style={{marginLeft:"2%",marginRight:"2%"}}>
-                                <h1>=</h1>
-                            </div>
-                            <div>
-                                <input type="text" name="result" value={field} onChange={(event)=>setField(event.target.value)} class="no-outline" style={{backgroundColor:"#FFFFFF",border:"3px solid #217C58",borderRadius: "5px",padding:"2% 3%",textAlign:"center",height:"90px", width:"90px",fontSize:"2.2rem"}}/> 
-                            </div>
-                        </div>
-                        
-                    </div>
+      <div>
+        <Navbar seriesNumber={"5"} seriesLevel={"2"} seriesName={"Addition"} />
+        <div style={mainDivHomepage}>
+          <div className="row">
+            <div className="col-6" style={{ marginTop: "-3%" }}>
+              <div style={CenterContent}>
+                <div
+                  style={{
+                    backgroundColor: "#FFFFFF",
+                    border: "3px solid red",
+                    borderRadius: "5px",
+                    padding: "2% 5%",
+                    textAlign: "center",
+                  }}
+                >
+                  <h1>8</h1>
                 </div>
-                <div style={block}>
-                                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/subtraction/level3')}>Don't Know</button><br />
-                                    <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
-                                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => history.push('/dashboard/games/subtraction/level3')}>Submit</button>
-                        </div>
+                <div style={{ marginLeft: "2%", marginRight: "2%" }}>
+                  <h1>-</h1>
+                </div>
+                <div
+                  style={{
+                    backgroundColor: "#FFFFFF",
+                    border: "3px solid red",
+                    borderRadius: "5px",
+                    padding: "2% 5%",
+                    textAlign: "center",
+                  }}
+                >
+                  <h1>5</h1>
+                </div>
+                <div style={{ marginLeft: "2%", marginRight: "2%" }}>
+                  <h1>=</h1>
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="result"
+                    value={field}
+                    onChange={(event) => setField(event.target.value)}
+                    class="no-outline"
+                    style={{
+                      backgroundColor: "#FFFFFF",
+                      border: "3px solid #217C58",
+                      borderRadius: "5px",
+                      padding: "2% 3%",
+                      textAlign: "center",
+                      height: "90px",
+                      width: "90px",
+                      fontSize: "2.2rem",
+                    }}
+                  />
+                </div>
+              </div>
             </div>
+          </div>
+          <div style={block}>
+            <button
+              type="button"
+              style={{ ...btn, color: "orange", borderColor: "orange" }}
+              onClick={() =>
+                history.push("/dashboard/games/subtraction/level3")
+              }
+            >
+              I Don't Know
+            </button>
+            <br />
+            <button
+              type="button"
+              style={{ ...btn, color: "red", borderColor: "red" }}
+              onClick={() => window.location.reload(false)}
+            >
+              Clear
+            </button>
+            <br />
+            <button
+              type="button"
+              style={{ ...btn, color: "green", borderColor: "green" }}
+              onClick={() =>
+                history.push("/dashboard/games/subtraction/level3")
+              }
+            >
+              Submit
+            </button>
+          </div>
         </div>
+      </div>
     );
 }
 

@@ -66,7 +66,7 @@ const Level2 = () => {
             points = 3;
 
             addResult({
-              user: "5f9cf57addfdda374802028d",
+              user: localStorage.getItem("userId"),
               status: "G2L2",
               game: "game2",
               points: points,
@@ -248,7 +248,7 @@ const Level2 = () => {
             style={{ ...btn, color: "orange", borderColor: "orange" }}
             onClick={() => history.push("/dashboard/games/counting/level3")}
           >
-            Don't Know
+            I Don't Know
           </button>
           <br />
           <button

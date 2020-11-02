@@ -42,7 +42,7 @@ const Level3 = (props) => {
       }
 
       addResult({
-        user: "5f9cf57addfdda374802028d",
+        user: localStorage.getItem("userId"),
         status: "G3L3",
         game: "game3",
         points: points,
@@ -153,7 +153,7 @@ const Level3 = (props) => {
                       history.push("/dashboard/games/ordering/level1")
                     }
                   >
-                    Don't Know
+                    I Don't Know
                   </button>
                   <br />
                   <button

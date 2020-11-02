@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import "./LoginCard.css";
+
 import axios from "axios";
+
 
 import Logo from "../../../assets/logo.png";
 import FacebookButton from "./FacebookButton/FacebookButton";
 import GoogleButton from "./GoogleButton//GoogleButton";
 
+
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Background from "../../../assets/bg1.png";
 // import Navbar from "../Navbar/Navbar";
+
+// require("dotenv").config();
+// console.log(process.env.A);
 
 const LoginCard = () => {
   let history = useHistory();
@@ -25,6 +31,17 @@ const LoginCard = () => {
       })
       .then((res) => {
         if (res.data.type === "success") {
+          // localStorage.setItem("", res.data.token);
+          localStorage.setItem("userId", res.data.user.id);
+          localStorage.setItem("userName", res.data.user.name);
+          localStorage.setItem("isLoggedIn", true);
+          // localStorage.setItem("vendorToken", res.data.token);
+          // console.log(
+          //   localStorage.getItem("userId"),
+          //   localStorage.getItem("userName"),
+          //   localStorage.getItem("isLoggedIn")
+          // );
+
           history.push("/dashboard");
         } else {
           history.push("/Server-Not-Responding");

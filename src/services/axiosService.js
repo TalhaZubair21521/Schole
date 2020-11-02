@@ -5,3 +5,4 @@ export var addResult = async function (data) {
   //   console.log(res);
   return res;
 };
+

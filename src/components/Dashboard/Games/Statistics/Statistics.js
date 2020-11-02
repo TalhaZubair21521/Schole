@@ -15,7 +15,10 @@ const Statistics = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/result/statistics`)
+      .get(
+        `http://localhost:5000/result/statistics?user=` +
+          localStorage.getItem("userId")
+      )
       .then((res) => {
         if (res.data.type === "success") {
           console.log(res.data.result);

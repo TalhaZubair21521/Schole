@@ -95,7 +95,9 @@ exports.Add = async (req, res) => {
 
 exports.Statistics = async (req, res) => {
   try {
-    const result = await Result.findOne({ user: "5f9cf57addfdda374802028d" });
+
+    const user = req.query.user;
+    const result = await Result.findOne({ user: user });
 
     // const list = [4, 4, 7, 5, 3, 2, 6, 6, 3];
     const list = [

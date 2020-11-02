@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Result = require("../models/result");
+const JWT = require("jsonwebtoken");
 const { validationResult } = require("express-validator");
 
 exports.Signup = async (req, res) => {
@@ -59,14 +60,13 @@ exports.Signin = async (req, res) => {
         Founduser.password
       );
       if (isEqual) {
-        console.log("s");
+        // console.log("s");
         res.status(200).json({
           type: "success",
           result: "User Logged In Successfully",
           user: {
             id: Founduser._id,
             name: Founduser.name,
-            phone: Founduser.phone,
           },
         });
       } else {
@@ -75,6 +75,118 @@ exports.Signin = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
+    res
+      .status(500)
+      .json({ type: "failure", result: "Server not Responding. Try Again" });
+  }
+};
+
+
+exports.OauthGoogle = async (req, res) => {
+  try {
+    const { email, name, googleId } = req.body;
+    const exist = await User.findOne({ email: email });
+    // const token = await JWT.sign({ username: name }, JWT_SECRET_KEY);
+    if (exist) {
+      res.status(200).json({
+        type: "success",
+        result: "Already Registered",
+        // token: token,
+        user: {
+          id: exist._id,
+          name: exist.name,
+        },
+      });
+      return;
+    }
+    const user = new User({
+      name: name,
+      email: email,
+      age: 0,
+      phone: 0,
+      provider: { type: "google", providerId: googleId },
+      completeStatus: false,
+    });
+    const response = await user.save();
+    if (!response) {
+      res
+        .status(500)
+        .json({ type: "failure", result: "Server not Responding. Try Again" });
+      return;
+    }
+    const result = new Result({ user: user._id });
+    // console.log(response);
+    result.save(async (err) => {
+      if (err) {
+        res.json({ type: "failure", result: "Server not Responding" });
+      } else {
+        res.status(200).json({
+          type: "success",
+          result: "User Registered Successfully",
+          user: {
+            id: response._id,
+            name: response.name,
+          },
+        });
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .json({ type: "failure", result: "Server not Responding. Try Again" });
+  }
+};
+
+exports.OauthFacebook = async (req, res) => {
+  try {
+    // console.log("here");
+    const { email, name, userId } = req.body;
+    const exist = await User.findOne({ email: email });
+    // const token = await JWT.sign({ username: name }, JWT_SECRET_KEY);
+    if (exist) {
+      res.status(200).json({
+        type: "success",
+        result: "Already Registered",
+        // token: token,
+        user: {
+          id: exist._id,
+          name: exist.name,
+        },
+      });
+      return;
+    }
+    const user = new User({
+      name: name,
+      email: email,
+      age: 0,
+      phone: 0,
+      provider: { type: "facebook", providerId: userId },
+      completeStatus: false,
+    });
+    const response = await user.save();
+    if (!response) {
+      res
+        .status(500)
+        .json({ type: "failure", result: "Server not Responding. Try Again" });
+      return;
+    }
+    const result = new Result({ user: user._id });
+    result.save(async (err) => {
+      if (err) {
+        res.json({ type: "failure", result: "Server not Responding" });
+      } else {
+        res.status(200).json({
+          type: "success",
+          result: "User Registered Successfully",
+          user: {
+            id: response._id,
+            name: response.name,
+          },
+        });
+      }
+    });
+  } catch (error) {
     res
       .status(500)
       .json({ type: "failure", result: "Server not Responding. Try Again" });

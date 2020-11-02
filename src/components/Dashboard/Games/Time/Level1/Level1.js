@@ -20,40 +20,85 @@ const handleChange = (v) => {
     }
 
     return (
-        <div>
-            <Navbar seriesNumber={"7"} seriesLevel={"1"} seriesName={"Time"} />
-            <div style={mainDivHomepage}>
-                <div className="row" >
-                    <div className="col-6" style={{ marginTop: "10%" }}>
-                        <div style={CenterContent}>
-                            <div className="container" style={{marginLeft:"15%"}}>
-                                <div className="row" style={{marginBottom:"2%"}}>
-                                            <div  onClick={()=>handleChange(3)} style={{backgroundColor:"#FFFFFF",border:"3px solid orange",borderRadius: "10px",padding:"2% 5%",textAlign:"center"}}>
-                                                <h1>3'o' Clock</h1>
-                                            </div>
-                                </div>
-                                <div className="row">
-                                        <div onClick={()=>handleChange(12)} style={{backgroundColor:"#FFFFFF",border:"3px solid orange",borderRadius: "10px",padding:"2% 5%",textAlign:"center"}}>
-                                            <h1>12'o' Clock</h1>
-                                        </div>
-                                        <div onClick={()=>handleChange(6)} style={{backgroundColor:"#FFFFFF",border:"3px solid orange",borderRadius: "10px",padding:"2% 5%",textAlign:"center",marginLeft:"2%"}}>
-                                            <h1>6'o' Clock</h1>
-                                        </div>
-                                </div>
-                            </div>
-                            
-                            
-                        </div>
-                        
+      <div>
+        <Navbar seriesNumber={"7"} seriesLevel={"1"} seriesName={"Time"} />
+        <div style={mainDivHomepage}>
+          <div className="row">
+            <div className="col-6" style={{ marginTop: "10%" }}>
+              <div style={CenterContent}>
+                <div className="container" style={{ marginLeft: "15%" }}>
+                  <div className="row" style={{ marginBottom: "2%" }}>
+                    <div
+                      onClick={() => handleChange(3)}
+                      style={{
+                        backgroundColor: "#FFFFFF",
+                        border: "3px solid orange",
+                        borderRadius: "10px",
+                        padding: "2% 5%",
+                        textAlign: "center",
+                      }}
+                    >
+                      <h1>3'o' Clock</h1>
                     </div>
+                  </div>
+                  <div className="row">
+                    <div
+                      onClick={() => handleChange(12)}
+                      style={{
+                        backgroundColor: "#FFFFFF",
+                        border: "3px solid orange",
+                        borderRadius: "10px",
+                        padding: "2% 5%",
+                        textAlign: "center",
+                      }}
+                    >
+                      <h1>12'o' Clock</h1>
+                    </div>
+                    <div
+                      onClick={() => handleChange(6)}
+                      style={{
+                        backgroundColor: "#FFFFFF",
+                        border: "3px solid orange",
+                        borderRadius: "10px",
+                        padding: "2% 5%",
+                        textAlign: "center",
+                        marginLeft: "2%",
+                      }}
+                    >
+                      <h1>6'o' Clock</h1>
+                    </div>
+                  </div>
                 </div>
-                <div style={block}>
-                                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/time/level2')}>Don't Know</button><br />
-                                    <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
-                                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => history.push('/dashboard/games/time/level2')}>Submit</button>
-                        </div>
+              </div>
             </div>
+          </div>
+          <div style={block}>
+            <button
+              type="button"
+              style={{ ...btn, color: "orange", borderColor: "orange" }}
+              onClick={() => history.push("/dashboard/games/time/level2")}
+            >
+              I Don't Know
+            </button>
+            <br />
+            <button
+              type="button"
+              style={{ ...btn, color: "red", borderColor: "red" }}
+              onClick={() => window.location.reload(false)}
+            >
+              Clear
+            </button>
+            <br />
+            <button
+              type="button"
+              style={{ ...btn, color: "green", borderColor: "green" }}
+              onClick={() => history.push("/dashboard/games/time/level2")}
+            >
+              Submit
+            </button>
+          </div>
         </div>
+      </div>
     );
 }
 
