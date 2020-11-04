@@ -9,28 +9,49 @@ const Level3 = (props) => {
     // const [field, setField] = useState('');
 
     return (
-        <div>
-            <Navbar seriesNumber={"7"} seriesLevel={"3"} seriesName={"Time"} />
-            <div style={mainDivHomepage}>
-                <div className="row" >
-                    <div className="col-6" style={{ marginTop: "-3%" }}>
-                        <div style={CenterContent}>
-                            <div className="container">
-                                <div className="row">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+      <div>
+        <Navbar seriesNumber={"7"} seriesLevel={"3"} seriesName={"Time"} />
+        <div style={mainDivHomepage}>
+          <div className="row">
+            <div className="col-6" style={{ marginTop: "-3%" }}>
+              <div style={CenterContent}>
+                <div className="container">
+                  <div className="row"></div>
                 </div>
-                <div style={block}>
-                                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/ordinalnumber/level1')}>Don't Know</button><br />
-                                    <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
-                                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => history.push('/dashboard/games/ordinalnumber/level1')}>Submit</button>
-                        </div>
+              </div>
             </div>
+          </div>
+          <div style={block}>
+            <button
+              type="button"
+              style={{ ...btn, color: "orange", borderColor: "orange" }}
+              onClick={() =>
+                history.push("/dashboard/games/ordinalnumber/level1")
+              }
+            >
+              I Don't Know
+            </button>
+            <br />
+            <button
+              type="button"
+              style={{ ...btn, color: "red", borderColor: "red" }}
+              onClick={() => window.location.reload(false)}
+            >
+              Clear
+            </button>
+            <br />
+            <button
+              type="button"
+              style={{ ...btn, color: "green", borderColor: "green" }}
+              onClick={() =>
+                history.push("/dashboard/games/ordinalnumber/level1")
+              }
+            >
+              Submit
+            </button>
+          </div>
         </div>
+      </div>
     );
 }
 

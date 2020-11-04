@@ -3,14 +3,19 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 
-const UserSchema = new Schema({
+const UserSchema = new Schema(
+  {
     id: Schema.ObjectId,
     name: { type: String, required: true },
     age: { type: Number, required: true },
     phone: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-}, { timestamps: true });
+    password: { type: String},
+    completeStatus: { type: Boolean, default: true  },
+    provider: { type: Object, default: {  type:  "local",  providerId: 0  } },
+  },
+  { timestamps: true }
+);
 
 UserSchema.statics.CreateHash = (password) => {
     return bcrypt.hashSync(password, 10);

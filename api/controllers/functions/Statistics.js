@@ -128,12 +128,14 @@ exports.CalculateStatistics = (db) => {
 
   // console.log(l, m, s, v, e);
   let mP = [85, 75, 70, 90, 30];
+  // let overall =
+  //   ((l + m + s + v + e) / (mP[0] + mP[1] + mP[2] + mP[3] + mP[4])) * 100;
   let parcentageList = [
     parseInt((l / mP[0]) * 100),
-    parseInt((m / mP[0]) * 100),
-    parseInt((s / mP[0]) * 100),
-    parseInt((v / mP[0]) * 100),
-    parseInt((e / mP[0]) * 100),
+    parseInt((m / mP[1]) * 100),
+    parseInt((s / mP[2]) * 100),
+    parseInt((v / mP[3]) * 100),
+    parseInt((e / mP[4]) * 100),
   ];
 
   return parcentageList;

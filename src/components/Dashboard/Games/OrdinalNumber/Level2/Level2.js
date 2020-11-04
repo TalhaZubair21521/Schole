@@ -8,26 +8,45 @@ const Level2 = (props) => {
 
 
     return (
-        <div>
-            <Navbar seriesNumber={"7"} seriesLevel={"2"} seriesName={"Ordinal Number"} />
-            <div style={mainDivHomepage}>
-                <div className="row" >
-                    <div className="col-6" style={{ marginTop: "10%" }}>
-                        <div style={CenterContent}>
-                           
-                            
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-                <div style={block}>
-                                    <button type="button" style={{ ...btn, color: 'orange', borderColor: "orange" }} onClick={() => history.push('/dashboard/games/time/level2')}>Don't Know</button><br />
-                                    <button type="button" style={{ ...btn, color: 'red', borderColor: "red" }} onClick={() => window.location.reload(false)}>Clear</button><br />
-                                    <button type="button" style={{ ...btn, color: 'green', borderColor: "green" }} onClick={() => history.push('/dashboard/games/time/level2')}>Submit</button>
-                        </div>
+      <div>
+        <Navbar
+          seriesNumber={"7"}
+          seriesLevel={"2"}
+          seriesName={"Ordinal Number"}
+        />
+        <div style={mainDivHomepage}>
+          <div className="row">
+            <div className="col-6" style={{ marginTop: "10%" }}>
+              <div style={CenterContent}></div>
             </div>
+          </div>
+          <div style={block}>
+            <button
+              type="button"
+              style={{ ...btn, color: "orange", borderColor: "orange" }}
+              onClick={() => history.push("/dashboard/games/time/level2")}
+            >
+              I Don't Know
+            </button>
+            <br />
+            <button
+              type="button"
+              style={{ ...btn, color: "red", borderColor: "red" }}
+              onClick={() => window.location.reload(false)}
+            >
+              Clear
+            </button>
+            <br />
+            <button
+              type="button"
+              style={{ ...btn, color: "green", borderColor: "green" }}
+              onClick={() => history.push("/dashboard/games/time/level2")}
+            >
+              Submit
+            </button>
+          </div>
         </div>
+      </div>
     );
 }
 
