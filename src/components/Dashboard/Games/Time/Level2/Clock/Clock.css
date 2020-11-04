@@ -1,0 +1,28 @@
+.hand {
+    background: #36213E;
+    position: absolute;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: 0% 50%;
+}
+
+.hour {
+    height: 10px;
+    width: 8%;
+    border-radius: 1px;
+    background: #C84747;
+}
+
+
+.min {
+    height: 7px;
+    width: 8%;
+    border-radius: 1px;
+    background: blue;
+}
+
+.second {
+    height: 10px;
+    width: 100px;
+    border-radius: 1px;
+    background: blue;
+}

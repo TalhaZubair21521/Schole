@@ -150,7 +150,7 @@ const Level3 = (props) => {
                     type="button"
                     style={{ ...btn, color: "orange", borderColor: "orange" }}
                     onClick={() =>
-                      history.push("/dashboard/games/ordering/level1")
+                      history.push("/dashboard/games/addition/level1")
                     }
                   >
                     I Don't Know

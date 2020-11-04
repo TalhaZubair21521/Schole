@@ -1,16 +1,49 @@
 import React, { useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import { useHistory } from "react-router-dom";
+import { addResult } from "../../../../../services/axiosService";
 import AdditionLevel1 from "../../../../../assets/bgs/subtractionBg3.png";
 
 const Level3 = (props) => {
     let history = useHistory();
+    let points = 0;
     
     const [field, setField] = useState('');
 
+    const fieldHandle = () => {
+      if (field === "10") {
+        points = 4;
+      }
+
+      addResult({
+        user: localStorage.getItem("userId"),
+        status: "G6L3",
+        game: "game6",
+        points: points,
+      }).then((res) => {
+        if (res.data.type === "success") {
+          history.push("/dashboard/games/time/level1");
+        } else {
+          history.push("/Server-Not-Responding");
+        }
+      });
+    };
+
     return (
       <div>
-        <Navbar seriesNumber={"5"} seriesLevel={"3"} seriesName={"Addition"} />
+        <Navbar
+         
+         
+          seriesNumber={"6"}
+        
+        
+            seriesLevel={"3"}
+        
+        
+            seriesName={"Subtraction"}
+       
+       
+        />
         <div style={mainDivHomepage}>
           <div className="row">
             <div
@@ -24,7 +57,7 @@ const Level3 = (props) => {
                     name="result"
                     value={field}
                     onChange={(event) => setField(event.target.value)}
-                    class="no-outline"
+                    className="no-outline"
                     style={{
                       backgroundColor: "#FFFFFF",
                       border: "3px solid #217C58",
@@ -60,7 +93,7 @@ const Level3 = (props) => {
             <button
               type="button"
               style={{ ...btn, color: "green", borderColor: "green" }}
-              onClick={() => history.push("/dashboard/games/time/level1")}
+              onClick={fieldHandle}
             >
               Submit
             </button>
