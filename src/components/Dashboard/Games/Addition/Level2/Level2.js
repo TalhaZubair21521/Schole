@@ -1,12 +1,34 @@
 import React, { useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import { useHistory } from "react-router-dom";
+import { addResult } from "../../../../../services/axiosService";
 import AdditionLevel1 from "../../../../../assets/bgs/additionBg2.png";
 
 const Level2 = (props) => {
     let history = useHistory();
+    let points = 0;
     
     const [field, setField] = useState('');
+
+    const fieldHandle = () => {
+      if (field === "19") {
+        points = 3;
+      }
+
+      // console.log(points);
+      addResult({
+        user: localStorage.getItem("userId"),
+        status: "G5L2",
+        game: "game5",
+        points: points,
+      }).then((res) => {
+        if (res.data.type === "success") {
+          history.push("/dashboard/games/addition/level3");
+        } else {
+          history.push("/Server-Not-Responding");
+        }
+      });
+    };
 
     return (
       <div>
@@ -49,7 +71,7 @@ const Level2 = (props) => {
                     name="result"
                     value={field}
                     onChange={(event) => setField(event.target.value)}
-                    class="no-outline"
+                    className="no-outline"
                     style={{
                       backgroundColor: "#FFFFFF",
                       border: "3px solid #217C58",
@@ -85,7 +107,7 @@ const Level2 = (props) => {
             <button
               type="button"
               style={{ ...btn, color: "green", borderColor: "green" }}
-              onClick={() => history.push("/dashboard/games/addition/level3")}
+              onClick={fieldHandle}
             >
               Submit
             </button>

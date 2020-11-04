@@ -2,43 +2,59 @@ import React from "react";
 import Navbar from "../../Navbar/Navbar";
 import { useHistory } from "react-router-dom";
 import AdditionLevel1 from "../../../../../assets/bgs/timeBg2.png";
+import AdditionLevel2 from "../../../../../assets/Clock.png";
+import Clock from "./Clock/Clock";
 
 const Level2 = (props) => {
-    let history = useHistory();
+  let history = useHistory();
 
-    return (
-      <div>
-        <Navbar seriesNumber={"7"} seriesLevel={"2"} seriesName={"Time"} />
-        <div style={mainDivHomepage}>
-          <div style={CenterContent}></div>
-          <div style={block}>
-            <button
-              type="button"
-              style={{ ...btn, color: "orange", borderColor: "orange" }}
-              onClick={() => history.push("/dashboard/games/time/level2")}
-            >
-              I Don't Know
-            </button>
-            <br />
-            <button
-              type="button"
-              style={{ ...btn, color: "red", borderColor: "red" }}
-              onClick={() => window.location.reload(false)}
-            >
-              Clear
-            </button>
-            <br />
-            <button
-              type="button"
-              style={{ ...btn, color: "green", borderColor: "green" }}
-              onClick={() => history.push("/dashboard/games/time/level2")}
-            >
-              Submit
-            </button>
+  // useEffect(() => {
+  //   console.log(new Date());
+  //   console.log(value);
+  //   const interval = setInterval(() => setValue(new Date()), 1000);
+
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, []);
+
+  return (
+    <div>
+      <Navbar seriesNumber={"7"} seriesLevel={"2"} seriesName={"Time"} />
+      <div style={mainDivHomepage}>
+        <div style={CenterContent}>
+          <div style={{    marginLeft: "12.8%", paddingTop: "13.8%"    }}>
+            <Clock />
           </div>
         </div>
+        <div style={block}>
+          <button
+            type="button"
+            style={{ ...btn, color: "orange", borderColor: "orange" }}
+            onClick={() => history.push("/dashboard/games/time/level3")}
+          >
+            I Don't Know
+          </button>
+          <br />
+          <button
+            type="button"
+            style={{ ...btn, color: "red", borderColor: "red" }}
+            onClick={() => window.location.reload(false)}
+          >
+            Clear
+          </button>
+          <br />
+          <button
+            type="button"
+            style={{ ...btn, color: "green", borderColor: "green" }}
+            onClick={() => history.push("/dashboard/games/time/level3")}
+          >
+            Submit
+          </button>
+        </div>
       </div>
-    );
+    </div>
+  );
 }
 
 const mainDivHomepage = {
@@ -51,12 +67,12 @@ const mainDivHomepage = {
 }
 
 const CenterContent = {
-    height: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: "-30px"
-}
+  height: "100vh",
+  backgroundImage: `url(${AdditionLevel2})`,
+  backgroundRepeat: "no-repeat",
+  marginTop: "12%",
+  marginLeft: "5%",
+};
 
 const btn = {
     border: "2px solid",
