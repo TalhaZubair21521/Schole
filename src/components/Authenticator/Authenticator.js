@@ -5,8 +5,8 @@ const Authenticator = (Component) => {
     const NewComponent = () => {
         let history = useHistory();
         useEffect(() => {
-            if (localStorage.getItem("isLoggedIn")) {
-                history.push('/Not-Authorized');
+            if (!localStorage.getItem("isLoggedIn")) {
+              history.push("/Not-Authorized");
             }
         }, [history])
 
