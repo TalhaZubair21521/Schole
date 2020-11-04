@@ -1,9 +1,9 @@
 import React from "react";
-import { useDrag } from "react-dnd";
+import { useDrag, DragPreviewImage } from "react-dnd";
 import { ItemTypes } from "../../../../../../utils/types";
 
 const BallonImage = (props) => {
-    const [{ isDragging }, drag] = useDrag({
+    const [{ isDragging }, drag, preview] = useDrag({
         item: {
             type: ItemTypes.CARD,
             id: props.id
@@ -13,14 +13,18 @@ const BallonImage = (props) => {
         })
     })
     return (
-        <img
-            ref={drag}
-            style={{ opacity: isDragging ? '0.3' : 1 }}
-            src={props.imageSrc}
-            alt="ballon"
-            width="70%"
-            height="90%"
-        />
+        <div>
+            <DragPreviewImage connect={preview} src={props.imageSrc} />
+            <img
+                ref={drag}
+                style={{ opacity: isDragging ? '0.3' : 1 }}
+                src={props.imageSrc}
+                alt="ballon"
+                width="70%"
+                height="90%"
+            />
+        </div>
+
     );
 }
 

@@ -12,7 +12,7 @@ const CardImage = (props) => {
     });
 
     return (
-        <div style={{ backgroundColor: isOver ? "black" : "" }}>
+        <div style={{ opacity: isOver ? '0.3' : 1 }}>
             {
                 !(typeof props.upperImage === 'undefined') ? (
                     <div style={{ backgroundImage: `url(${props.imageSrc})`, height: "100px", width: "100px", backgroundPosition: "center", backgroundRepeat: "no-repear", backgroundSize: "100% 100%", }}>

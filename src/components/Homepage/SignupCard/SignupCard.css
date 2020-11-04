@@ -1,0 +1,7 @@
+.logingInputs:focus {
+    outline: none;
+}
+
+.removeFocus:focus{
+    outline:none;
+}
