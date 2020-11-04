@@ -1,22 +1,36 @@
 import React from "react";
 import Navbar from "../../Navbar/Navbar";
 import { useHistory } from "react-router-dom";
+import { addResult } from "../../../../../services/axiosService";
 import AdditionLevel1 from "../../../../../assets/bgs/timeBg1.png";
 
 const Level1 = (props) => {
     let history = useHistory();
+    let points = 0;
     
 const handleChange = (v) => {
-        alert(v);
+        // alert(v);
         if(v === 3){
-            alert('You Choose Correct');
+            // alert('You Choose Correct');
+            points = 2;
         }
-        else {
-            alert('You Choose Wrong');
-        }
+        // else {
+        //     alert('You Choose Wrong');
+        // }
 
-        alert("Next Level");
-        history.push('/dashboard/games/time/level2');
+        addResult({
+          user: localStorage.getItem("userId"),
+          status: "G7L1",
+          game: "game7",
+          points: points,
+        }).then((res) => {
+          if (res.data.type === "success") {
+            history.push("/dashboard/games/time/level2");
+          } else {
+            history.push("/Server-Not-Responding");
+          }
+        });
+
     }
 
     return (
@@ -92,7 +106,7 @@ const handleChange = (v) => {
             <button
               type="button"
               style={{ ...btn, color: "green", borderColor: "green" }}
-              onClick={() => history.push("/dashboard/games/time/level2")}
+              onClick={()=>alert("Choose a option first")}
             >
               Submit
             </button>
